@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Metric Playground</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #000000;
+            --border-color: #e0e0e0;
+            --subtle-bg: #f5f5f5;
+            --error-color: #000000; /* Keeping strictly B/W, using bold/borders for state */
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Layout */
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 { margin: 0; font-size: 1.2rem; font-weight: 600; letter-spacing: -0.5px; }
+        
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* Sidebar - Metric List */
+        aside {
+            width: 300px;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            background: var(--subtle-bg);
+        }
+
+        .sidebar-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #metric-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow-y: auto;
+        }
+
+        .metric-item {
+            padding: 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.1s;
+        }
+
+        .metric-item:hover { background: #e0e0e0; }
+        .metric-item.active { background: var(--text-color); color: var(--bg-color); }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Configuration Panel */
+        .config-bar {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        input[type="text"], input[type="url"], textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: var(--font-main);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--text-color);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #666;
+        }
+
+        /* Buttons */
+        button {
+            background: var(--text-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+
+        button:hover { opacity: 0.8; }
+        button:disabled { opacity: 0.3; cursor: not-allowed; }
+        
+        button.secondary {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+        button.secondary:hover { background: var(--subtle-bg); }
+
+        /* Dynamic Form */
+        #workspace { display: none; }
+        
+        .card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .metric-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Results Area */
+        pre {
+            background: var(--subtle-bg);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border: 1px solid var(--text-color);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Utility */
+        .hidden { display: none !important; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        
+        /* Loading Spinner */
+        .loader {
+            border: 2px solid var(--subtle-bg);
+            border-top: 2px solid var(--text-color);
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>LLM Metric Playground</h1>
+    <div class="config-bar">
+        <input type="url" id="api-url" value="https://custom-metric-playground.vercel.app" placeholder="API Base URL (e.g., http://localhost:8000)" style="margin:0; width: 250px;">
+        <button class="secondary" id="refresh-btn">Fetch Metrics</button>
+    </div>
+</header>
+
+<div class="container">
+    <!-- Sidebar -->
+    <aside>
+        <div class="sidebar-header">Available Metrics</div>
+        <ul id="metric-list">
+            <li style="padding:1rem; color:#666; font-size:0.9rem;">Click "Fetch Metrics" to load...</li>
+        </ul>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main>
+        <!-- Empty State -->
+        <div id="empty-state" style="text-align: center; margin-top: 4rem; color: #999;">
+            <p>Select a metric from the sidebar to begin evaluation.</p>
+        </div>
+
+        <!-- Active Metric Workspace -->
+        <div id="workspace">
+            <div class="card">
+                <div class="card-header">
+                    <h2 style="margin:0;" id="active-metric-name">Metric Name</h2>
+                    <p class="metric-description" id="active-metric-desc">Description goes here...</p>
+                    <div style="margin-top: 1rem; font-size: 0.8rem;">
+                        <span class="status-badge" id="active-metric-id">ID</span>
+                    </div>
+                </div>
+
+                <form id="eval-form">
+                    <!-- Dynamic Inputs will be injected here -->
+                    <div id="dynamic-inputs"></div>
+
+                    <div class="grid-2">
+                        <div>
+                            <label for="provider">LLM Provider</label>
+                            <select id="provider" name="provider">
+                                <option value="perplexity">Perplexity</option>
+                                <option value="openai">OpenAI</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="model">Model</label>
+                            <select id="model" name="model">
+                                <option value="sonar-pro">sonar-pro</option>
+                                <option value="gpt-4">gpt-4</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; text-align: right;">
+                        <span id="loading-indicator" class="hidden" style="margin-right: 1rem; font-size: 0.9rem; color: #666;">Evaluating... <div class="loader"></div></span>
+                        <button type="submit" id="run-btn">Evaluate Input</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Results Section -->
+            <div id="results-area" class="hidden">
+                <h3 style="font-size: 1rem; border-bottom: 1px solid #ccc; padding-bottom: 0.5rem;">Evaluation Result</h3>
+                <pre id="json-output"></pre>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    /**
+     * State Management
+     */
+    const state = {
+        metrics: [],
+        activeMetric: null,
+        baseUrl: localStorage.getItem('llm_api_url') || 'http://localhost:8000'
+    };
+
+    /**
+     * DOM Elements
+     */
+    const els = {
+        apiUrl: document.getElementById('api-url'),
+        refreshBtn: document.getElementById('refresh-btn'),
+        metricList: document.getElementById('metric-list'),
+        workspace: document.getElementById('workspace'),
+        emptyState: document.getElementById('empty-state'),
+        metricName: document.getElementById('active-metric-name'),
+        metricDesc: document.getElementById('active-metric-desc'),
+        metricId: document.getElementById('active-metric-id'),
+        dynamicInputs: document.getElementById('dynamic-inputs'),
+        evalForm: document.getElementById('eval-form'),
+        runBtn: document.getElementById('run-btn'),
+        resultsArea: document.getElementById('results-area'),
+        jsonOutput: document.getElementById('json-output'),
+        loading: document.getElementById('loading-indicator')
+    };
+
+    /**
+     * Initialization
+     */
+    els.apiUrl.value = state.baseUrl;
+    
+    // Auto-fetch if URL looks valid on load
+    if(state.baseUrl) {
+        fetchMetrics();
+    }
+
+    /**
+     * Event Listeners
+     */
+    els.refreshBtn.addEventListener('click', () => {
+        state.baseUrl = els.apiUrl.value.replace(/\/$/, ""); // trim trailing slash
+        localStorage.setItem('llm_api_url', state.baseUrl);
+        fetchMetrics();
+    });
+
+    els.evalForm.addEventListener('submit', handleEvaluation);
+
+    /**
+     * API Functions
+     */
+    async function fetchMetrics() {
+        els.refreshBtn.disabled = true;
+        els.refreshBtn.textContent = "Loading...";
+        els.metricList.innerHTML = '<li style="padding:1rem;">Fetching...</li>';
+
+        try {
+            const res = await fetch(`${state.baseUrl}/v1/metrics/?limit=100`);
+            if (!res.ok) throw new Error(`API Error: ${res.status}`);
+            
+            const data = await res.json();
+            state.metrics = data;
+            renderMetricList();
+        } catch (err) {
+            console.error(err);
+            els.metricList.innerHTML = `<li style="padding:1rem; color:red;">Error: ${err.message}<br><small>Check URL and CORS settings.</small></li>`;
+        } finally {
+            els.refreshBtn.disabled = false;
+            els.refreshBtn.textContent = "Fetch Metrics";
+        }
+    }
+
+    /**
+     * Rendering Functions
+     */
+    function renderMetricList() {
+        els.metricList.innerHTML = '';
+        if (state.metrics.length === 0) {
+            els.metricList.innerHTML = '<li style="padding:1rem;">No metrics found.</li>';
+            return;
+        }
+
+        state.metrics.forEach(metric => {
+            const li = document.createElement('li');
+            li.className = 'metric-item';
+            li.innerHTML = `
+                <div style="font-weight:600">${metric.name}</div>
+                <div style="font-size:0.8rem; color:#666; margin-top:4px;">${metric.description || 'No description'}</div>
+            `;
+            li.onclick = () => selectMetric(metric);
+            els.metricList.appendChild(li);
+        });
+    }
+
+    function selectMetric(metric) {
+        state.activeMetric = metric;
+        
+        // UI Updates
+        document.querySelectorAll('.metric-item').forEach(el => el.classList.remove('active'));
+        // (In a real app, we'd find the specific element, but this is simple enough)
+        
+        els.emptyState.classList.add('hidden');
+        els.workspace.classList.remove('hidden'); // Show form
+        els.resultsArea.classList.add('hidden');  // Hide previous results
+        
+        // Hydrate Header
+        els.metricName.textContent = metric.name;
+        els.metricDesc.textContent = metric.description || "No description provided.";
+        els.metricId.textContent = metric._id || "ID: N/A";
+
+        // Generate Form Fields
+        generateInputFields(metric.input_fields);
+    }
+
+    function generateInputFields(fields) {
+        els.dynamicInputs.innerHTML = '';
+        
+        if (!fields || fields.length === 0) {
+            els.dynamicInputs.innerHTML = '<p style="color:#666; font-style:italic;">No inputs defined for this metric.</p>';
+            return;
+        }
+
+        fields.forEach(field => {
+            const wrapper = document.createElement('div');
+            
+            const label = document.createElement('label');
+            label.textContent = capitalize(field);
+            label.setAttribute('for', `input-${field}`);
+            
+            // Heuristic: If field contains "content", "text", "query", use Textarea. Else Input.
+            let input;
+            if (field.toLowerCase().includes('query') || field.toLowerCase().includes('response') || field.toLowerCase().includes('context')) {
+                input = document.createElement('textarea');
+                input.rows = 4;
+            } else {
+                input = document.createElement('input');
+                input.type = 'text';
+            }
+            
+            input.id = `input-${field}`;
+            input.name = field;
+            input.required = true;
+            input.placeholder = `Enter ${field}...`;
+
+            wrapper.appendChild(label);
+            wrapper.appendChild(input);
+            els.dynamicInputs.appendChild(wrapper);
+        });
+    }
+
+    async function handleEvaluation(e) {
+        e.preventDefault();
+        if (!state.activeMetric) return;
+
+        // 1. Gather Inputs
+        const formData = new FormData(els.evalForm);
+        const payload = {
+            inputs: {},
+            provider: formData.get('provider'),
+            model: formData.get('model')
+        };
+
+        // Separate logic for dynamic inputs vs system inputs
+        state.activeMetric.input_fields.forEach(field => {
+            payload.inputs[field] = document.getElementById(`input-${field}`).value;
+        });
+
+        // 2. UI Loading State
+        els.runBtn.disabled = true;
+        els.loading.classList.remove('hidden');
+        els.resultsArea.classList.add('hidden');
+
+        try {
+            // 3. API Call
+            const url = `${state.baseUrl}/v1/metrics/${state.activeMetric.name}/evaluate`;
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await res.json();
+            
+            // 4. Render Results
+            els.resultsArea.classList.remove('hidden');
+            els.jsonOutput.textContent = JSON.stringify(data, null, 2);
+            
+            if (!res.ok) {
+                els.jsonOutput.style.color = "red";
+            } else {
+                els.jsonOutput.style.color = "black";
+            }
+
+        } catch (err) {
+            els.resultsArea.classList.remove('hidden');
+            els.jsonOutput.textContent = `Error: ${err.message}`;
+            els.jsonOutput.style.color = "red";
+        } finally {
+            els.runBtn.disabled = false;
+            els.loading.classList.add('hidden');
+        }
+    }
+
+    // Helper
+    function capitalize(str) {
+        return str.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    }
+
+</script>
+
+</body>
+</html>

@@ -8,61 +8,86 @@
         :root {
             --bg-color: #ffffff;
             --text-color: #000000;
-            --accent-color: #000000;
             --border-color: #e0e0e0;
             --subtle-bg: #f5f5f5;
-            --error-color: #000000; /* Keeping strictly B/W, using bold/borders for state */
             --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
         }
 
         * { box-sizing: border-box; }
 
-        body {
+        html, body {
             margin: 0;
             padding: 0;
+            height: 100%;
             font-family: var(--font-main);
-            background-color: var(--bg-color);
+            background: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
         }
 
-        /* Layout */
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
         header {
             border-bottom: 1px solid var(--border-color);
-            padding: 1rem 2rem;
+            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: #fafafa;
         }
 
-        h1 { margin: 0; font-size: 1.2rem; font-weight: 600; letter-spacing: -0.5px; }
+        h1 { 
+            margin: 0; 
+            font-size: 1.3rem; 
+            font-weight: 700; 
+            letter-spacing: -0.5px; 
+        }
         
+        .config-bar {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        #api-url {
+            width: 300px;
+            padding: 0.6rem 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: var(--font-main);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
         .container {
             display: flex;
             flex: 1;
             overflow: hidden;
+            gap: 0;
         }
 
-        /* Sidebar - Metric List */
+        /* Sidebar */
         aside {
-            width: 300px;
+            width: 320px;
             border-right: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
             background: var(--subtle-bg);
+            overflow: hidden;
         }
 
         .sidebar-header {
-            padding: 1rem;
+            padding: 1.2rem 1.5rem;
             border-bottom: 1px solid var(--border-color);
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: #666;
         }
 
         #metric-list {
@@ -70,59 +95,81 @@
             padding: 0;
             margin: 0;
             overflow-y: auto;
+            flex: 1;
         }
 
         .metric-item {
-            padding: 1rem;
+            padding: 1rem 1.2rem;
             cursor: pointer;
             border-bottom: 1px solid var(--border-color);
-            transition: background 0.1s;
+            transition: all 0.15s ease;
+            user-select: none;
         }
 
-        .metric-item:hover { background: #e0e0e0; }
-        .metric-item.active { background: var(--text-color); color: var(--bg-color); }
+        .metric-item:hover { 
+            background: #e8e8e8; 
+        }
+
+        .metric-item.active { 
+            background: var(--text-color); 
+            color: var(--bg-color);
+        }
+
+        .metric-item .name {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .metric-item .desc {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            line-height: 1.3;
+        }
+
+        .metric-item.active .desc {
+            opacity: 0.9;
+        }
 
         /* Main Content */
         main {
             flex: 1;
-            padding: 2rem;
+            padding: 2.5rem 3rem;
             overflow-y: auto;
-            max-width: 900px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        /* Configuration Panel */
-        .config-bar {
             display: flex;
-            gap: 1rem;
-            align-items: center;
-            font-size: 0.9rem;
+            flex-direction: column;
         }
 
-        input[type="text"], input[type="url"], textarea, select {
+        input[type="text"], 
+        input[type="url"], 
+        textarea, 
+        select {
             width: 100%;
-            padding: 0.75rem;
+            padding: 0.7rem 0.8rem;
             border: 1px solid var(--border-color);
             border-radius: 4px;
             font-family: var(--font-main);
             margin-bottom: 1rem;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             background: var(--bg-color);
             color: var(--text-color);
+            transition: border-color 0.2s;
         }
 
         input:focus, textarea:focus, select:focus {
             outline: none;
             border-color: var(--text-color);
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
         }
 
         label {
             display: block;
             margin-bottom: 0.5rem;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            color: #666;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* Buttons */
@@ -130,85 +177,226 @@
             background: var(--text-color);
             color: var(--bg-color);
             border: none;
-            padding: 0.75rem 1.5rem;
+            padding: 0.7rem 1.5rem;
             border-radius: 4px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
-            font-size: 0.9rem;
-            transition: opacity 0.2s;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        button:hover { opacity: 0.8; }
-        button:disabled { opacity: 0.3; cursor: not-allowed; }
+        button:hover { 
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled { 
+            opacity: 0.4; 
+            cursor: not-allowed;
+            transform: none;
+        }
         
         button.secondary {
             background: transparent;
-            border: 1px solid var(--border-color);
+            border: 1.5px solid var(--border-color);
             color: var(--text-color);
+            font-weight: 600;
         }
-        button.secondary:hover { background: var(--subtle-bg); }
 
-        /* Dynamic Form */
-        #workspace { display: none; }
+        button.secondary:hover { 
+            background: var(--subtle-bg);
+            border-color: var(--text-color);
+        }
+
+        /* States */
+        #empty-state { 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            color: #999;
+            text-align: center;
+        }
+
+        #workspace { 
+            display: none; 
+        }
+
+        #workspace.active {
+            display: block;
+        }
         
         .card {
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 6px;
             padding: 2rem;
             margin-bottom: 2rem;
+            background: #fafafa;
         }
 
         .card-header {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-header h2 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.4rem;
+            font-weight: 700;
         }
 
         .metric-description {
             font-size: 0.9rem;
             color: #666;
-            margin-top: 0.5rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
         }
 
-        /* Results Area */
+        .status-badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border: 1px solid var(--text-color);
+            border-radius: 3px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        /* Results */
+        #results-area { 
+            display: none;
+        }
+
+        #results-area.active {
+            display: block;
+        }
+
+        #results-area h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
         pre {
             background: var(--subtle-bg);
-            padding: 1rem;
+            padding: 1.2rem;
             border-radius: 4px;
             overflow-x: auto;
             font-family: var(--font-mono);
             font-size: 0.85rem;
             border: 1px solid var(--border-color);
+            line-height: 1.5;
+            color: var(--text-color);
+            margin: 0;
         }
 
-        .status-badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border: 1px solid var(--text-color);
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            text-transform: uppercase;
+        /* Grid */
+        .grid-2 { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
 
-        /* Utility */
-        .hidden { display: none !important; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
         
         /* Loading Spinner */
         .loader {
             border: 2px solid var(--subtle-bg);
             border-top: 2px solid var(--text-color);
             border-radius: 50%;
-            width: 16px;
-            height: 16px;
-            animation: spin 1s linear infinite;
+            width: 14px;
+            height: 14px;
+            animation: spin 0.8s linear infinite;
             display: inline-block;
             vertical-align: middle;
             margin-left: 8px;
         }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
+        @keyframes spin { 
+            0% { transform: rotate(0deg); } 
+            100% { transform: rotate(360deg); } 
+        }
+
+        .loading-text {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Form Layout */
+        .form-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-section h4 {
+            margin: 1.5rem 0 1rem 0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            aside {
+                width: 280px;
+            }
+            main {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            aside {
+                width: 100%;
+                max-height: 200px;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+            .config-bar {
+                width: 100%;
+            }
+            #api-url {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -216,69 +404,78 @@
 <header>
     <h1>LLM Metric Playground</h1>
     <div class="config-bar">
-        <input type="url" id="api-url" value="https://custom-metric-playground.vercel.app" placeholder="API Base URL (e.g., http://localhost:8000)" style="margin:0; width: 250px;">
+        <input type="url" id="api-url" placeholder="API Base URL" value="https://custom-metric-playground.vercel.app">
         <button class="secondary" id="refresh-btn">Fetch Metrics</button>
     </div>
 </header>
 
 <div class="container">
-    <!-- Sidebar -->
+    <!-- Sidebar with Metrics List -->
     <aside>
         <div class="sidebar-header">Available Metrics</div>
         <ul id="metric-list">
-            <li style="padding:1rem; color:#666; font-size:0.9rem;">Click "Fetch Metrics" to load...</li>
+            <li style="padding:1.2rem; color:#999; font-size:0.9rem; text-align: center;">Click "Fetch Metrics" to load</li>
         </ul>
     </aside>
 
-    <!-- Main Workspace -->
+    <!-- Main Content Area -->
     <main>
         <!-- Empty State -->
-        <div id="empty-state" style="text-align: center; margin-top: 4rem; color: #999;">
-            <p>Select a metric from the sidebar to begin evaluation.</p>
+        <div id="empty-state">
+            <p style="font-size: 1rem; margin: 0;">📊 Select a metric from the sidebar to begin</p>
         </div>
 
         <!-- Active Metric Workspace -->
         <div id="workspace">
             <div class="card">
                 <div class="card-header">
-                    <h2 style="margin:0;" id="active-metric-name">Metric Name</h2>
-                    <p class="metric-description" id="active-metric-desc">Description goes here...</p>
-                    <div style="margin-top: 1rem; font-size: 0.8rem;">
-                        <span class="status-badge" id="active-metric-id">ID</span>
-                    </div>
+                    <h2 id="active-metric-name">Metric</h2>
+                    <p class="metric-description" id="active-metric-desc"></p>
+                    <span class="status-badge" id="active-metric-id">ID</span>
                 </div>
 
                 <form id="eval-form">
-                    <!-- Dynamic Inputs will be injected here -->
-                    <div id="dynamic-inputs"></div>
+                    <!-- Dynamic Inputs Section -->
+                    <div class="form-section">
+                        <h4>Evaluation Inputs</h4>
+                        <div id="dynamic-inputs"></div>
+                    </div>
 
-                    <div class="grid-2">
-                        <div>
-                            <label for="provider">LLM Provider</label>
-                            <select id="provider" name="provider">
-                                <option value="perplexity">Perplexity</option>
-                                <option value="openai">OpenAI</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="model">Model</label>
-                            <select id="model" name="model">
-                                <option value="sonar-pro">sonar-pro</option>
-                                <option value="gpt-4">gpt-4</option>
-                            </select>
+                    <!-- Provider & Model Section -->
+                    <div class="form-section">
+                        <h4>LLM Configuration</h4>
+                        <div class="grid-2">
+                            <div>
+                                <label for="provider">Provider</label>
+                                <select id="provider" name="provider">
+                                    <option value="perplexity">Perplexity</option>
+                                    <option value="openai">OpenAI</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="model">Model</label>
+                                <select id="model" name="model">
+                                    <option value="sonar-pro">sonar-pro</option>
+                                    <option value="gpt-4">gpt-4</option>
+                                    <option value="gpt-4o">gpt-4o</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
-                    <div style="margin-top: 1.5rem; text-align: right;">
-                        <span id="loading-indicator" class="hidden" style="margin-right: 1rem; font-size: 0.9rem; color: #666;">Evaluating... <div class="loader"></div></span>
-                        <button type="submit" id="run-btn">Evaluate Input</button>
+                    <!-- Action Buttons -->
+                    <div class="form-actions">
+                        <span id="loading-indicator" class="hidden" style="margin-right: 1rem;">
+                            <span class="loading-text">Evaluating<span class="loader"></span></span>
+                        </span>
+                        <button type="submit" id="run-btn">Run Evaluation</button>
                     </div>
                 </form>
             </div>
 
             <!-- Results Section -->
-            <div id="results-area" class="hidden">
-                <h3 style="font-size: 1rem; border-bottom: 1px solid #ccc; padding-bottom: 0.5rem;">Evaluation Result</h3>
+            <div id="results-area">
+                <h3>Results</h3>
                 <pre id="json-output"></pre>
             </div>
         </div>
@@ -287,16 +484,17 @@
 
 <script>
     /**
-     * State Management
+     * Global State
      */
     const state = {
         metrics: [],
         activeMetric: null,
+        activeMetricElement: null,
         baseUrl: localStorage.getItem('llm_api_url') || 'https://custom-metric-playground.vercel.app'
     };
 
     /**
-     * DOM Elements
+     * DOM Selectors
      */
     const els = {
         apiUrl: document.getElementById('api-url'),
@@ -316,121 +514,142 @@
     };
 
     /**
-     * Initialization
+     * Init
      */
     els.apiUrl.value = state.baseUrl;
-    
-    // Auto-fetch if URL looks valid on load
-    if(state.baseUrl) {
+
+    els.refreshBtn.addEventListener('click', fetchMetrics);
+    els.evalForm.addEventListener('submit', handleEvaluation);
+
+    // Auto-fetch on load
+    if (state.baseUrl && state.baseUrl !== 'http://localhost:8000') {
         fetchMetrics();
     }
 
     /**
-     * Event Listeners
-     */
-    els.refreshBtn.addEventListener('click', () => {
-        state.baseUrl = els.apiUrl.value.replace(/\/$/, ""); // trim trailing slash
-        localStorage.setItem('llm_api_url', state.baseUrl);
-        fetchMetrics();
-    });
-
-    els.evalForm.addEventListener('submit', handleEvaluation);
-
-    /**
-     * API Functions
+     * Fetch all metrics
      */
     async function fetchMetrics() {
         els.refreshBtn.disabled = true;
-        els.refreshBtn.textContent = "Loading...";
-        els.metricList.innerHTML = '<li style="padding:1rem;">Fetching...</li>';
+        els.refreshBtn.textContent = 'Loading...';
+        els.metricList.innerHTML = '<li style="padding:1.2rem; color:#999;">Fetching metrics...</li>';
 
         try {
+            state.baseUrl = els.apiUrl.value.replace(/\/$/, '');
+            localStorage.setItem('llm_api_url', state.baseUrl);
+
             const res = await fetch(`${state.baseUrl}/v1/metrics/?limit=100`);
-            if (!res.ok) throw new Error(`API Error: ${res.status}`);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
             
             const data = await res.json();
             state.metrics = data;
             renderMetricList();
         } catch (err) {
-            console.error(err);
-            els.metricList.innerHTML = `<li style="padding:1rem; color:red;">Error: ${err.message}<br><small>Check URL and CORS settings.</small></li>`;
+            console.error('Fetch Error:', err);
+            els.metricList.innerHTML = `
+                <li style="padding:1.2rem; color:#c00; font-size:0.85rem;">
+                    ❌ Error: ${err.message}
+                    <br><br>
+                    <small>• Check API URL is correct<br>• Verify CORS is enabled<br>• Check network tab for details</small>
+                </li>
+            `;
         } finally {
             els.refreshBtn.disabled = false;
-            els.refreshBtn.textContent = "Fetch Metrics";
+            els.refreshBtn.textContent = 'Fetch Metrics';
         }
     }
 
     /**
-     * Rendering Functions
+     * Render metric list in sidebar
      */
     function renderMetricList() {
         els.metricList.innerHTML = '';
+        
         if (state.metrics.length === 0) {
-            els.metricList.innerHTML = '<li style="padding:1rem;">No metrics found.</li>';
+            els.metricList.innerHTML = '<li style="padding:1.2rem; color:#999;">No metrics available</li>';
             return;
         }
 
-        state.metrics.forEach(metric => {
+        state.metrics.forEach((metric, idx) => {
             const li = document.createElement('li');
             li.className = 'metric-item';
+            li.setAttribute('data-metric-idx', idx);
             li.innerHTML = `
-                <div style="font-weight:600">${metric.name}</div>
-                <div style="font-size:0.8rem; color:#666; margin-top:4px;">${metric.description || 'No description'}</div>
+                <div class="name">${metric.name}</div>
+                <div class="desc">${metric.description || 'No description'}</div>
             `;
-            li.onclick = () => selectMetric(metric);
+            
+            li.addEventListener('click', () => {
+                selectMetric(metric, li);
+            });
+            
             els.metricList.appendChild(li);
         });
     }
 
-    function selectMetric(metric) {
+    /**
+     * Select and display a metric
+     */
+    function selectMetric(metric, element) {
         state.activeMetric = metric;
-        
-        // UI Updates
-        document.querySelectorAll('.metric-item').forEach(el => el.classList.remove('active'));
-        // (In a real app, we'd find the specific element, but this is simple enough)
-        
-        els.emptyState.classList.add('hidden');
-        els.workspace.classList.remove('hidden'); // Show form
-        els.resultsArea.classList.add('hidden');  // Hide previous results
-        
-        // Hydrate Header
-        els.metricName.textContent = metric.name;
-        els.metricDesc.textContent = metric.description || "No description provided.";
-        els.metricId.textContent = metric._id || "ID: N/A";
+        state.activeMetricElement = element;
 
-        // Generate Form Fields
-        generateInputFields(metric.input_fields);
+        // Update UI: deactivate all, activate this one
+        document.querySelectorAll('.metric-item').forEach(el => {
+            el.classList.remove('active');
+        });
+        element.classList.add('active');
+
+        // Show workspace, hide empty state
+        els.emptyState.style.display = 'none';
+        els.workspace.classList.add('active');
+        els.resultsArea.classList.remove('active');
+
+        // Populate header
+        els.metricName.textContent = metric.name;
+        els.metricDesc.textContent = metric.description || 'No description provided';
+        els.metricId.textContent = metric._id || metric.name;
+
+        // Generate input fields
+        generateInputFields(metric.input_fields || []);
+
+        // Reset form
+        els.evalForm.reset();
     }
 
+    /**
+     * Generate form fields dynamically
+     */
     function generateInputFields(fields) {
         els.dynamicInputs.innerHTML = '';
-        
+
         if (!fields || fields.length === 0) {
-            els.dynamicInputs.innerHTML = '<p style="color:#666; font-style:italic;">No inputs defined for this metric.</p>';
+            els.dynamicInputs.innerHTML = '<p style="color:#999; font-style:italic;">No input fields defined</p>';
             return;
         }
 
         fields.forEach(field => {
             const wrapper = document.createElement('div');
-            
+            wrapper.style.marginBottom = '1.2rem';
+
             const label = document.createElement('label');
-            label.textContent = capitalize(field);
             label.setAttribute('for', `input-${field}`);
-            
-            // Heuristic: If field contains "content", "text", "query", use Textarea. Else Input.
+            label.textContent = fieldLabel(field);
+
             let input;
-            if (field.toLowerCase().includes('query') || field.toLowerCase().includes('response') || field.toLowerCase().includes('context')) {
+            // Use textarea for longer text fields
+            if (shouldUseTextarea(field)) {
                 input = document.createElement('textarea');
                 input.rows = 4;
             } else {
                 input = document.createElement('input');
                 input.type = 'text';
             }
-            
+
             input.id = `input-${field}`;
             input.name = field;
             input.required = true;
-            input.placeholder = `Enter ${field}...`;
+            input.placeholder = `Enter ${fieldLabel(field).toLowerCase()}...`;
 
             wrapper.appendChild(label);
             wrapper.appendChild(input);
@@ -438,64 +657,96 @@
         });
     }
 
+    /**
+     * Heuristic: which fields should be textareas?
+     */
+    function shouldUseTextarea(field) {
+        const lowerField = field.toLowerCase();
+        const textareaKeywords = ['query', 'response', 'content', 'text', 'body', 'message', 'context', 'prompt', 'answer'];
+        return textareaKeywords.some(kw => lowerField.includes(kw));
+    }
+
+    /**
+     * Convert field name to readable label
+     */
+    function fieldLabel(field) {
+        return field
+            .replace(/_/g, ' ')
+            .replace(/([a-z])([A-Z])/g, '$1 $2')
+            .replace(/\b\w/g, l => l.toUpperCase());
+    }
+
+    /**
+     * Handle form submission
+     */
     async function handleEvaluation(e) {
         e.preventDefault();
-        if (!state.activeMetric) return;
 
-        // 1. Gather Inputs
-        const formData = new FormData(els.evalForm);
+        if (!state.activeMetric) {
+            alert('No metric selected');
+            return;
+        }
+
+        // Collect input values
         const payload = {
             inputs: {},
-            provider: formData.get('provider'),
-            model: formData.get('model')
+            provider: document.getElementById('provider').value,
+            model: document.getElementById('model').value
         };
 
-        // Separate logic for dynamic inputs vs system inputs
+        // Get all dynamic input values
         state.activeMetric.input_fields.forEach(field => {
-            payload.inputs[field] = document.getElementById(`input-${field}`).value;
+            const fieldEl = document.getElementById(`input-${field}`);
+            if (fieldEl) {
+                payload.inputs[field] = fieldEl.value.trim();
+            }
         });
 
-        // 2. UI Loading State
+        // Validation
+        const emptyFields = Object.entries(payload.inputs)
+            .filter(([_, v]) => !v)
+            .map(([k, _]) => k);
+
+        if (emptyFields.length > 0) {
+            alert(`Please fill in: ${emptyFields.join(', ')}`);
+            return;
+        }
+
+        // UI: Loading state
         els.runBtn.disabled = true;
         els.loading.classList.remove('hidden');
-        els.resultsArea.classList.add('hidden');
+        els.resultsArea.classList.remove('active');
 
         try {
-            // 3. API Call
+            // Make API call
             const url = `${state.baseUrl}/v1/metrics/${state.activeMetric.name}/evaluate`;
             const res = await fetch(url, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
 
             const data = await res.json();
-            
-            // 4. Render Results
-            els.resultsArea.classList.remove('hidden');
+
+            // Render results
+            els.resultsArea.classList.add('active');
             els.jsonOutput.textContent = JSON.stringify(data, null, 2);
-            
-            if (!res.ok) {
-                els.jsonOutput.style.color = "red";
-            } else {
-                els.jsonOutput.style.color = "black";
-            }
+            els.jsonOutput.style.color = res.ok ? 'var(--text-color)' : '#c00';
+
+            // Scroll to results
+            setTimeout(() => {
+                els.resultsArea.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
 
         } catch (err) {
-            els.resultsArea.classList.remove('hidden');
-            els.jsonOutput.textContent = `Error: ${err.message}`;
-            els.jsonOutput.style.color = "red";
+            console.error(err);
+            els.resultsArea.classList.add('active');
+            els.jsonOutput.textContent = `❌ Error: ${err.message}\n\nCheck console for details.`;
+            els.jsonOutput.style.color = '#c00';
         } finally {
             els.runBtn.disabled = false;
             els.loading.classList.add('hidden');
         }
-    }
-
-    // Helper
-    function capitalize(str) {
-        return str.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     }
 
 </script>

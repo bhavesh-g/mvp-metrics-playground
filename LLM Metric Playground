@@ -1,0 +1,297 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/6d06394d87fa4471760917232faf5722/8325999c-2e08-4efa-9098-0db67434b31b/01a3b5fd.html?AWSAccessKeyId=ASIA2F3EMEYE53YC4XCX&Signature=DCXkzavBtcemFYqeKfvJAkfo2Gw%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEJT%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQD5DcJMgQ2saGBy7IDlemmNwgEZWymN0eJewC0vRQQjHgIgE1JaoYnU46vvYz%2FwotbgAqaJLo75r%2FiVtJfhhwvn6xEq8wQIXBABGgw2OTk3NTMzMDk3MDUiDG7Km4uAcPApu9XkRyrQBGA7ir8lSsMPpyELitMExwAbVRh0d4uYUzbxLW3dIVZJ8IpynbiQrkXwOrmBjA7lotjzFmBgj5CXbi%2FCam%2F9dFuWmJikZ1WGL0mm6oHxaesQnd%2FWEeQdF2%2BKqs1Y3XV26ayimNyFtwvC3qut7Z7cBUcNbJxE2yoI4Vs2m%2FNcO9iV1pkJGRTKNdsCnnDqZDMOU3V7RvGDTi1VNqgVXSAvzGZbsiCaw%2FUjtqc4AEMmLy6DGkAxHfioOJYLi2rJDXJqFcmk015WuvztGCR2oPvlRVmatWDiCLr%2BZhHMxRPypfl6wxaPWOEr8y8AVQyLIwCuhK3lzN5HGbGs1PWcVzij5kO3BU95oSWJBjVDHOpEShPdtne4W%2F%2FOm8NV0vhD3AspWDDlHP7nrFeHbLzcEXXye%2BgIOFSmyUD1qZ%2Bc25mmqmXd74hsqQKfdVvYjaW44SmFExm2DDhFOvkK%2Br1MF3q5lb%2BRxZXGyTUsh7CO%2BMvdXh6RU1ABNwwg7PzBnZ8%2FtKHi2BMUbsCNPR7%2BCbVx1eoWHD5qGcCnvERMdUj%2B1ciiApdhNsZTAtBc2pesSSIKQEABq5OEaQG0uvLlrdckqKgbwRePIcVNKWsC54EXTWETf6WJOVdeS3%2B4Sl4M7OJelqEOs4UzJpwqyVwkVYIeXjmICW8ayQuiwX1AsWqS7qAkAi223OKJFQ%2B8FAWcTH4COQYAKwTTeJevpIjEqncXEM6%2FSPRJB1J4L8t%2BVbmxaWk5ENCxQCc3t5eDVwyOuN1d1SrM56g5a7uG76bqxNPZPB7ii7owt6DkywY6mAERqhjCdfKC3yTMmG2LxsBX5GKF4L1OdBN2GWWkCgCDylqrnakwO%2FrIe0zG8gCD%2Bz8zVL83nPVqXa9NNinbcjAeqARF4Q2YYVfmlzfmHtZXqLpDvwNPNw5KVs%2BCKQacXz5LgQCz%2BENoUUXgD90%2F8%2FJf9Rz%2FOFpRJSxM2Tg7chBL97yl2iOQrP7pHWT19oW6%2Btp5%2B5FAkIVqzw%3D%3D&Expires=1769546302&rnd=1769543458813&utm_source=perplexity
+Subject: LLM Metric Playground
+Date: Wed, 28 Jan 2026 01:21:06 +0530
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--wYaImMtidyemiRlvSEwxaw0zCXcfmbRCRxRLxfjuwg----"
+
+
+------MultipartBoundary--wYaImMtidyemiRlvSEwxaw0zCXcfmbRCRxRLxfjuwg----
+Content-Type: text/html
+Content-ID: <frame-D8C73A98C190FD3360CD3260AE8CE740@mhtml.blink>
+Content-Transfer-Encoding: binary
+Content-Location: https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/6d06394d87fa4471760917232faf5722/8325999c-2e08-4efa-9098-0db67434b31b/01a3b5fd.html?AWSAccessKeyId=ASIA2F3EMEYE53YC4XCX&Signature=DCXkzavBtcemFYqeKfvJAkfo2Gw%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEJT%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQD5DcJMgQ2saGBy7IDlemmNwgEZWymN0eJewC0vRQQjHgIgE1JaoYnU46vvYz%2FwotbgAqaJLo75r%2FiVtJfhhwvn6xEq8wQIXBABGgw2OTk3NTMzMDk3MDUiDG7Km4uAcPApu9XkRyrQBGA7ir8lSsMPpyELitMExwAbVRh0d4uYUzbxLW3dIVZJ8IpynbiQrkXwOrmBjA7lotjzFmBgj5CXbi%2FCam%2F9dFuWmJikZ1WGL0mm6oHxaesQnd%2FWEeQdF2%2BKqs1Y3XV26ayimNyFtwvC3qut7Z7cBUcNbJxE2yoI4Vs2m%2FNcO9iV1pkJGRTKNdsCnnDqZDMOU3V7RvGDTi1VNqgVXSAvzGZbsiCaw%2FUjtqc4AEMmLy6DGkAxHfioOJYLi2rJDXJqFcmk015WuvztGCR2oPvlRVmatWDiCLr%2BZhHMxRPypfl6wxaPWOEr8y8AVQyLIwCuhK3lzN5HGbGs1PWcVzij5kO3BU95oSWJBjVDHOpEShPdtne4W%2F%2FOm8NV0vhD3AspWDDlHP7nrFeHbLzcEXXye%2BgIOFSmyUD1qZ%2Bc25mmqmXd74hsqQKfdVvYjaW44SmFExm2DDhFOvkK%2Br1MF3q5lb%2BRxZXGyTUsh7CO%2BMvdXh6RU1ABNwwg7PzBnZ8%2FtKHi2BMUbsCNPR7%2BCbVx1eoWHD5qGcCnvERMdUj%2B1ciiApdhNsZTAtBc2pesSSIKQEABq5OEaQG0uvLlrdckqKgbwRePIcVNKWsC54EXTWETf6WJOVdeS3%2B4Sl4M7OJelqEOs4UzJpwqyVwkVYIeXjmICW8ayQuiwX1AsWqS7qAkAi223OKJFQ%2B8FAWcTH4COQYAKwTTeJevpIjEqncXEM6%2FSPRJB1J4L8t%2BVbmxaWk5ENCxQCc3t5eDVwyOuN1d1SrM56g5a7uG76bqxNPZPB7ii7owt6DkywY6mAERqhjCdfKC3yTMmG2LxsBX5GKF4L1OdBN2GWWkCgCDylqrnakwO%2FrIe0zG8gCD%2Bz8zVL83nPVqXa9NNinbcjAeqARF4Q2YYVfmlzfmHtZXqLpDvwNPNw5KVs%2BCKQacXz5LgQCz%2BENoUUXgD90%2F8%2FJf9Rz%2FOFpRJSxM2Tg7chBL97yl2iOQrP7pHWT19oW6%2Btp5%2B5FAkIVqzw%3D%3D&Expires=1769546302&rnd=1769543458813&utm_source=perplexity
+
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="cid:css-9b96e8ba-66d7-4e06-b900-5fe332749416@mhtml.blink" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Metric Playground</title>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>🎯 LLM Metric Playground</h1>
+        <div class="api-config">
+            <input type="text" id="api-url" value="http://localhost:8000" placeholder="API Base URL">
+        </div>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Metrics</h2>
+                <button class="refresh-btn">↻ Refresh</button>
+            </div>
+            <div class="metric-list" id="metric-list">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📊</div>
+                    <p>No metrics found</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="tabs">
+                <div class="tab active">Evaluate</div>
+                <div class="tab">Create Metric</div>
+                <div class="tab">Bulk Operations</div>
+            </div>
+
+            <div id="tab-evaluate" class="tab-content active">
+                <div class="card">
+                    <h3>Single Evaluation</h3>
+                    <p id="eval-message" style="color: var(--text-secondary); margin-bottom: 1.5rem;">Select a metric from the sidebar to begin</p>
+
+                    <div id="eval-form" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Provider</label>
+                                <select id="eval-provider">
+                                    <option value="perplexity">Perplexity</option>
+                                    <option value="openai">OpenAI</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Model</label>
+                                <select id="eval-model">
+                                    <option value="sonar-pro">sonar-pro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="dynamic-inputs"></div>
+
+                        <button class="btn btn-primary">Evaluate</button>
+                    </div>
+                </div>
+
+                <div id="eval-results" style="display: none;">
+                    <div class="card">
+                        <h3>Results</h3>
+                        <div id="eval-results-content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-create" class="tab-content">
+                <div class="card">
+                    <h3>Create New Metric</h3>
+                    <form id="create-form">
+                        <div class="form-group">
+                            <label>Metric Name (slug)</label>
+                            <input type="text" id="create-name" required="" placeholder="e.g., jira-quality">
+                            <small>Unique identifier using lowercase letters, numbers, and hyphens</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="create-description" rows="2" placeholder="What does this metric evaluate?"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Input Fields (comma-separated)</label>
+                            <input type="text" id="create-inputs" required="" placeholder="query, response, context">
+                            <small>These will become dynamic form fields for evaluation</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Prompt Template (Jinja2)</label>
+                            <textarea id="create-prompt" rows="8" required="" placeholder="Evaluate the following:\n\nQuery: {{ query }}\nResponse: {{ response }}\n\nProvide a score from 1-10."></textarea>
+                            <small>Use {{ field_name }} to reference input fields</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Output Schema (JSON)</label>
+                            <textarea id="create-schema" rows="4" required="" placeholder="{&quot;score&quot;: &quot;integer&quot;, &quot;reasoning&quot;: &quot;string&quot;}">{"score": "integer", "reasoning": "string"}</textarea>
+                            <small>Defines the expected structure of LLM responses</small>
+                        </div>
+
+                        <div style="display: flex; gap: 1rem;">
+                            <button type="submit" class="btn btn-primary">Create Metric</button>
+                            <button type="button" class="btn btn-secondary">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="tab-bulk" class="tab-content">
+                <div class="card">
+                    <h3>Bulk Evaluation</h3>
+
+                    <div class="form-group">
+                        <label>Select Metric</label>
+                        <select id="bulk-metric">
+                            <option value="">Choose a metric...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload JSON File</label>
+                        <input type="file" id="bulk-file" accept=".json">
+                        <small>Upload a JSON array of test cases</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Or Paste JSON Array</label>
+                        <textarea id="bulk-json" rows="8" placeholder="[{&quot;query&quot;: &quot;test&quot;, &quot;response&quot;: &quot;answer&quot;}, ...]"></textarea>
+                    </div>
+
+                    <button class="btn btn-primary">Run Bulk Evaluation</button>
+                </div>
+
+                <div id="bulk-results" style="display: none;"></div>
+            </div>
+        </main>
+    </div>
+
+    
+
+
+</body></html>
+------MultipartBoundary--wYaImMtidyemiRlvSEwxaw0zCXcfmbRCRxRLxfjuwg----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-9b96e8ba-66d7-4e06-b900-5fe332749416@mhtml.blink
+
+@charset "utf-8";
+
+* { margin: 0px; padding: 0px; box-sizing: border-box; }
+
+:root { --bg-primary: #ffffff; --bg-secondary: #f8f9fa; --bg-tertiary: #e9ecef; --text-primary: #1a1a1a; --text-secondary: #6c757d; --border: #dee2e6; --accent: #0066ff; --accent-hover: #0052cc; --success: #28a745; --danger: #dc3545; --warning: #ffc107; }
+
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg-secondary); color: var(--text-primary); line-height: 1.6; }
+
+.header { background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 3px; }
+
+.header h1 { font-size: 1.5rem; font-weight: 600; }
+
+.api-config { display: flex; gap: 0.75rem; align-items: center; }
+
+.api-config input { padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 6px; font-size: 0.875rem; width: 300px; }
+
+.container { display: flex; height: calc(-70px + 100vh); }
+
+.sidebar { width: 320px; background: var(--bg-primary); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+
+.sidebar-header { padding: 1rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+
+.sidebar-header h2 { font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); }
+
+.metric-list { flex: 1 1 0%; overflow-y: auto; }
+
+.metric-card { padding: 1rem; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.2s; position: relative; }
+
+.metric-card:hover { background: var(--bg-secondary); }
+
+.metric-card.selected { background: var(--accent); color: white; }
+
+.metric-card.selected .metric-desc, .metric-card.selected .metric-id { color: rgba(255, 255, 255, 0.8); }
+
+.metric-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; }
+
+.metric-desc { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.25rem; }
+
+.metric-id { font-size: 0.75rem; font-family: monospace; color: var(--text-secondary); }
+
+.metric-actions { position: absolute; top: 0.75rem; right: 0.75rem; display: flex; gap: 0.5rem; opacity: 0; transition: opacity 0.2s; }
+
+.metric-card:hover .metric-actions { opacity: 1; }
+
+.metric-card.selected .metric-actions { opacity: 1; }
+
+.icon-btn { background: transparent; border: none; cursor: pointer; padding: 0.25rem; border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+
+.icon-btn:hover { background: rgba(0, 0, 0, 0.1); }
+
+.metric-card.selected .icon-btn:hover { background: rgba(255, 255, 255, 0.2); }
+
+.main-content { flex: 1 1 0%; overflow-y: auto; }
+
+.tabs { display: flex; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 0px 2rem; }
+
+.tab { padding: 1rem 1.5rem; cursor: pointer; border-bottom: 2px solid transparent; font-weight: 500; transition: 0.2s; color: var(--text-secondary); }
+
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.tab-content { display: none; padding: 2rem; }
+
+.tab-content.active { display: block; }
+
+.form-group { margin-bottom: 1.5rem; }
+
+.form-group label { display: block; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.9rem; }
+
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; font-family: inherit; font-size: 0.9rem; }
+
+.form-group textarea { font-family: monospace; min-height: 120px; resize: vertical; }
+
+.form-group small { display: block; margin-top: 0.25rem; color: var(--text-secondary); font-size: 0.8rem; }
+
+.btn { padding: 0.75rem 1.5rem; border: none; border-radius: 6px; font-weight: 500; cursor: pointer; transition: 0.2s; font-size: 0.9rem; }
+
+.btn-primary { background: var(--accent); color: white; }
+
+.btn-primary:hover { background: var(--accent-hover); }
+
+.btn-secondary { background: var(--bg-tertiary); color: var(--text-primary); }
+
+.btn-secondary:hover { background: rgb(211, 214, 218); }
+
+.btn-danger { background: var(--danger); color: white; }
+
+.btn-danger:hover { background: rgb(200, 35, 51); }
+
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.card { background: var(--bg-primary); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; }
+
+.card h3 { margin-bottom: 1rem; font-size: 1.1rem; }
+
+.result-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; margin-bottom: 0.75rem; }
+
+.result-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+
+.status-badge { padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500; }
+
+.status-success { background: rgb(212, 237, 218); color: rgb(21, 87, 36); }
+
+.status-error { background: rgb(248, 215, 218); color: rgb(114, 28, 36); }
+
+pre { background: var(--bg-tertiary); padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; }
+
+.empty-state { text-align: center; padding: 3rem; color: var(--text-secondary); }
+
+.empty-state-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+.loading { display: inline-block; width: 1rem; height: 1rem; border-width: 2px; border-style: solid; border-color: white rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3); border-image: initial; border-radius: 50%; animation: 0.8s linear 0s infinite normal none running spin; }
+
+@keyframes spin { 
+  100% { transform: rotate(360deg); }
+}
+
+.refresh-btn { background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 500; transition: 0.2s; }
+
+.refresh-btn:hover { background: var(--bg-tertiary); }
+
+.bulk-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+
+.stat-card { background: var(--bg-primary); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; text-align: center; }
+
+.stat-value { font-size: 1.75rem; font-weight: 600; margin-bottom: 0.25rem; }
+
+.stat-label { font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; }
+------MultipartBoundary--wYaImMtidyemiRlvSEwxaw0zCXcfmbRCRxRLxfjuwg------

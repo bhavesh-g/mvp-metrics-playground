@@ -1,0 +1,446 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/e232e5b1c179ddf20babb803c66ae7ab/f1366c6d-42f4-43e4-a6a7-34eb7ff1d52b/fc4a490d.html?AWSAccessKeyId=ASIA2F3EMEYEVHNA64PJ&Signature=TXCF%2B%2Bo8o7dLN7gP3%2BYnwNEzW5o%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEJT%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQCI4%2FEFuBXdlV8pVNIDF8S%2FKZxjQg192vJT7fL99aqP0gIhAPNL0GFNWJhEsP3pSWYSfImFLX%2FxKX7ttqizrsErSu2ZKvMECFwQARoMNjk5NzUzMzA5NzA1Igw3uDsXmE2shJ9TmqIq0ATC0PGG%2BPTxga9m6WrK7D3J6bHguG7SiDSsfbnn6vofOp0WmVcZneYSU8mMUL1Fel37IPgYoUbnBcuyj02utzCCSU0KPV2zRO7nYococex0j9qGWGLmFzLD9gtoxEAFuwdPPVLdPDyBGzVbULINJS%2B6wM4nh5Y6pM88i88vKX4rF6OF%2BjI9Qvi11lqk6i6nkW%2BSB0yLmhwUjF5YU0TlNCXZnt4OhtrMq9KeRjA0mVds9JWpiVI3y22w35ak03UItbOWSba7f0m4hghY8JCxcu%2FSOqopzUprn3H0%2FYZuz7P%2BAtQwKzcW21I%2BJVohNtAM0aE%2FnhQaVlcuKgprGCwYnh%2FM3ZwwPDZS2OaEwsXMhsRUwc61OfOTrteLKV86%2BROFCKUuWrSwMRHQUFTdbJFJ1qBZQg%2BLwJVepwY3CHVh14YmC8sha6SvjTSpWkkSnAmIz8P1fudgI4iYQFFEch4jLWGgPzeqOizIPzZGKAG2nJVd083ZzejVqQoX4V1%2Bwhs1Fz7w5rKZfhOJQQ3bqTf7eGmiQS0MiByLYekWigdyqUS%2B0P1BXPU%2FXAL%2FQhovzmKLmvZfA2F1hZSOTWDffgjylQn%2BSmjFpbU8OoOv8AXVCTCmidJMb8%2BkbeMNXj3v4e9BFD2brPnLIYqH%2BgtsSDCUajYiBL6fN1u%2BWfskjoyyXHAJtVBst77qYKwmumrQojp0rVD5SKGxsj%2Fec%2BCdU4M%2Bwu2isB5GfWk1G2XxDxkr%2Bz4yUgHD70QQnD6%2BGwoRSR8uel3b5qK2H3xd3tLykKMBLgduMJef5MsGOpcBXlYBqeM9294heanc0Oc9x5Nt%2FRdRn9Xj%2F7QDSvJEGTUxKWVJIOk8H5q%2FnqzxtrCQXfSXKRXQoD%2FpIDBOAl0MQG0jLhQzYaK0YjsDSwZk6tmrIGSEGpXkdsbHRoixWUr%2BeVXw9b0tCGn4HQER8Ao0uEwCJWoWd%2BCHY4i3LHoZBgGUWeCqqXVBQtzW%2BJZVSw4XjBeYIHJvTA%3D%3D&Expires=1769547336&rnd=1769543913314&utm_source=perplexity
+Subject: LLM Metric Playground
+Date: Wed, 28 Jan 2026 01:28:36 +0530
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--bH4afwtFG1wpX5YZlYxXZrwPDwAiPzP9oQrtVlZx74----"
+
+
+------MultipartBoundary--bH4afwtFG1wpX5YZlYxXZrwPDwAiPzP9oQrtVlZx74----
+Content-Type: text/html
+Content-ID: <frame-94D9D444E55B4967EB2C7B0443D63F0B@mhtml.blink>
+Content-Transfer-Encoding: binary
+Content-Location: https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/e232e5b1c179ddf20babb803c66ae7ab/f1366c6d-42f4-43e4-a6a7-34eb7ff1d52b/fc4a490d.html?AWSAccessKeyId=ASIA2F3EMEYEVHNA64PJ&Signature=TXCF%2B%2Bo8o7dLN7gP3%2BYnwNEzW5o%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEJT%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQCI4%2FEFuBXdlV8pVNIDF8S%2FKZxjQg192vJT7fL99aqP0gIhAPNL0GFNWJhEsP3pSWYSfImFLX%2FxKX7ttqizrsErSu2ZKvMECFwQARoMNjk5NzUzMzA5NzA1Igw3uDsXmE2shJ9TmqIq0ATC0PGG%2BPTxga9m6WrK7D3J6bHguG7SiDSsfbnn6vofOp0WmVcZneYSU8mMUL1Fel37IPgYoUbnBcuyj02utzCCSU0KPV2zRO7nYococex0j9qGWGLmFzLD9gtoxEAFuwdPPVLdPDyBGzVbULINJS%2B6wM4nh5Y6pM88i88vKX4rF6OF%2BjI9Qvi11lqk6i6nkW%2BSB0yLmhwUjF5YU0TlNCXZnt4OhtrMq9KeRjA0mVds9JWpiVI3y22w35ak03UItbOWSba7f0m4hghY8JCxcu%2FSOqopzUprn3H0%2FYZuz7P%2BAtQwKzcW21I%2BJVohNtAM0aE%2FnhQaVlcuKgprGCwYnh%2FM3ZwwPDZS2OaEwsXMhsRUwc61OfOTrteLKV86%2BROFCKUuWrSwMRHQUFTdbJFJ1qBZQg%2BLwJVepwY3CHVh14YmC8sha6SvjTSpWkkSnAmIz8P1fudgI4iYQFFEch4jLWGgPzeqOizIPzZGKAG2nJVd083ZzejVqQoX4V1%2Bwhs1Fz7w5rKZfhOJQQ3bqTf7eGmiQS0MiByLYekWigdyqUS%2B0P1BXPU%2FXAL%2FQhovzmKLmvZfA2F1hZSOTWDffgjylQn%2BSmjFpbU8OoOv8AXVCTCmidJMb8%2BkbeMNXj3v4e9BFD2brPnLIYqH%2BgtsSDCUajYiBL6fN1u%2BWfskjoyyXHAJtVBst77qYKwmumrQojp0rVD5SKGxsj%2Fec%2BCdU4M%2Bwu2isB5GfWk1G2XxDxkr%2Bz4yUgHD70QQnD6%2BGwoRSR8uel3b5qK2H3xd3tLykKMBLgduMJef5MsGOpcBXlYBqeM9294heanc0Oc9x5Nt%2FRdRn9Xj%2F7QDSvJEGTUxKWVJIOk8H5q%2FnqzxtrCQXfSXKRXQoD%2FpIDBOAl0MQG0jLhQzYaK0YjsDSwZk6tmrIGSEGpXkdsbHRoixWUr%2BeVXw9b0tCGn4HQER8Ao0uEwCJWoWd%2BCHY4i3LHoZBgGUWeCqqXVBQtzW%2BJZVSw4XjBeYIHJvTA%3D%3D&Expires=1769547336&rnd=1769543913314&utm_source=perplexity
+
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="cid:css-95295941-af92-4129-8110-029e349e7406@mhtml.blink" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Metric Playground</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="app-bar">
+        <h1>
+            <span class="material-icons">analytics</span>
+            LLM Metric Playground
+        </h1>
+        <div class="toolbar">
+            <input type="text" id="api-url" class="text-field" value="http://localhost:8000" placeholder="API Base URL">
+        </div>
+    </div>
+
+    <div class="container">
+        <aside class="drawer">
+            <div class="drawer-header">
+                <h2>Metrics</h2>
+                <button class="button-icon">
+                    <span class="material-icons">refresh</span>
+                </button>
+            </div>
+            <div class="list" id="metric-list">
+                <div class="empty-state">
+                    <span class="material-icons">bar_chart</span>
+                    <p>No metrics found</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="tabs">
+                <div class="tab active">Evaluate</div>
+                <div class="tab">Create Metric</div>
+                <div class="tab">Bulk Operations</div>
+            </div>
+
+            <div id="tab-evaluate" class="tab-content active">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Single Evaluation</h3>
+                        <p id="eval-message" class="helper-text">Select a metric from the sidebar to begin</p>
+                    </div>
+                    <div class="card-content" id="eval-form" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label class="form-label">Provider</label>
+                                <select id="eval-provider" class="select">
+                                    <option value="perplexity">Perplexity</option>
+                                    <option value="openai">OpenAI</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label class="form-label">Model</label>
+                                <select id="eval-model" class="select">
+                                    <option value="sonar-pro">sonar-pro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="dynamic-inputs"></div>
+
+                        <button class="button button-primary">
+                            <span class="material-icons">play_arrow</span>
+                            Evaluate
+                        </button>
+                    </div>
+                </div>
+
+                <div id="eval-results" style="display: none;"></div>
+            </div>
+
+            <div id="tab-create" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Create New Metric</h3>
+                    </div>
+                    <div class="card-content">
+                        <form id="create-form">
+                            <div class="form-field">
+                                <label class="form-label">Metric Name (slug)</label>
+                                <input type="text" id="create-name" class="input" required="" placeholder="e.g., jira-quality">
+                                <div class="helper-text">Unique identifier using lowercase letters, numbers, and hyphens</div>
+                            </div>
+
+                            <div class="form-field">
+                                <label class="form-label">Description</label>
+                                <textarea id="create-description" class="textarea" rows="2" placeholder="What does this metric evaluate?"></textarea>
+                            </div>
+
+                            <div class="form-field">
+                                <label class="form-label">Input Fields</label>
+                                <input type="text" id="create-inputs" class="input" required="" placeholder="query, response, context">
+                                <div class="helper-text">Comma-separated field names for evaluation inputs</div>
+                            </div>
+
+                            <div class="form-field">
+                                <label class="form-label">Prompt Template (Jinja2)</label>
+                                <textarea id="create-prompt" class="textarea" rows="8" required="" placeholder="Evaluate the following:
+
+Query: {{ query }}
+Response: {{ response }}
+
+Provide a score from 1-10."></textarea>
+                                <div class="helper-text">Use {{ field_name }} to reference input fields</div>
+                            </div>
+
+                            <div class="form-field">
+                                <label class="form-label">Output Schema (JSON)</label>
+                                <textarea id="create-schema" class="textarea" rows="4" required="">{"score": "integer", "reasoning": "string"}</textarea>
+                                <div class="helper-text">Expected structure of LLM responses</div>
+                            </div>
+
+                            <div style="display: flex; gap: 12px;">
+                                <button type="submit" class="button button-primary">
+                                    <span class="material-icons">add</span>
+                                    Create Metric
+                                </button>
+                                <button type="button" class="button button-secondary">
+                                    Clear
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-bulk" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Bulk Evaluation</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="form-field">
+                            <label class="form-label">Select Metric</label>
+                            <select id="bulk-metric" class="select">
+                                <option value="">Choose a metric...</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="form-label">Upload JSON File</label>
+                            <input type="file" id="bulk-file" class="input" accept=".json">
+                            <div class="helper-text">Upload a JSON array of test cases</div>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="form-label">Or Paste JSON Array</label>
+                            <textarea id="bulk-json" class="textarea" rows="8" placeholder="[{&quot;query&quot;: &quot;test&quot;, &quot;response&quot;: &quot;answer&quot;}, ...]"></textarea>
+                        </div>
+
+                        <button class="button button-primary">
+                            <span class="material-icons">rocket_launch</span>
+                            Run Bulk Evaluation
+                        </button>
+                    </div>
+                </div>
+
+                <div id="bulk-results" style="display: none;"></div>
+            </div>
+        </main>
+    </div>
+
+    <div id="snackbar" class="snackbar show">Failed to load metrics</div>
+
+    
+
+
+</body></html>
+------MultipartBoundary--bH4afwtFG1wpX5YZlYxXZrwPDwAiPzP9oQrtVlZx74----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: https://fonts.googleapis.com/icon?family=Material+Icons
+
+@charset "utf-8";
+
+@font-face { font-family: "Material Icons"; font-style: normal; font-weight: 400; src: url("https://fonts.gstatic.com/s/materialicons/v145/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2") format("woff2"); }
+
+.material-icons { font-family: "Material Icons"; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; overflow-wrap: normal; direction: ltr; font-feature-settings: "liga"; -webkit-font-smoothing: antialiased; }
+------MultipartBoundary--bH4afwtFG1wpX5YZlYxXZrwPDwAiPzP9oQrtVlZx74----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap
+
+@charset "utf-8";
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 300; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 300; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 300; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 300; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBHMdazTgWw.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 300; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+302-303, U+305, U+307-308, U+310, U+312, U+315, U+31A, U+326-327, U+32C, U+32F-330, U+332-333, U+338, U+33A, U+346, U+34D, U+391-3A1, U+3A3-3A9, U+3B1-3C9, U+3D1, U+3D5-3D6, U+3F0-3F1, U+3F4-3F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 300; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+1-C, U+E-1F, U+7F-9F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 300; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 300; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 300; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBHMdazTgWw.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+302-303, U+305, U+307-308, U+310, U+312, U+315, U+31A, U+326-327, U+32C, U+32F-330, U+332-333, U+338, U+33A, U+346, U+34D, U+391-3A1, U+3A3-3A9, U+3B1-3C9, U+3D1, U+3D5-3D6, U+3F0-3F1, U+3F4-3F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+1-C, U+E-1F, U+7F-9F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBHMdazTgWw.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+302-303, U+305, U+307-308, U+310, U+312, U+315, U+31A, U+326-327, U+32C, U+32F-330, U+332-333, U+338, U+33A, U+346, U+34D, U+391-3A1, U+3A3-3A9, U+3B1-3C9, U+3D1, U+3D5-3D6, U+3F0-3F1, U+3F4-3F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+1-C, U+E-1F, U+7F-9F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBHMdazTgWw.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+302-303, U+305, U+307-308, U+310, U+312, U+315, U+31A, U+326-327, U+32C, U+32F-330, U+332-333, U+338, U+33A, U+346, U+34D, U+391-3A1, U+3A3-3A9, U+3B1-3C9, U+3D1, U+3D5-3D6, U+3F0-3F1, U+3F4-3F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+1-C, U+E-1F, U+7F-9F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBHMdazTgWw.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: Roboto; font-style: normal; font-weight: 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+------MultipartBoundary--bH4afwtFG1wpX5YZlYxXZrwPDwAiPzP9oQrtVlZx74----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-95295941-af92-4129-8110-029e349e7406@mhtml.blink
+
+@charset "utf-8";
+
+* { margin: 0px; padding: 0px; box-sizing: border-box; }
+
+:root { --primary: #1976d2; --primary-dark: #1565c0; --primary-light: #42a5f5; --accent: #ff4081; --background: #fafafa; --surface: #ffffff; --error: #f44336; --success: #4caf50; --warning: #ff9800; --text-primary: rgba(0, 0, 0, 0.87); --text-secondary: rgba(0, 0, 0, 0.6); --text-disabled: rgba(0, 0, 0, 0.38); --divider: rgba(0, 0, 0, 0.12); }
+
+body { font-family: Roboto, sans-serif; background: var(--background); color: var(--text-primary); line-height: 1.5; }
+
+.app-bar { background: var(--primary); color: white; padding: 0px 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px; position: relative; z-index: 10; }
+
+.app-bar h1 { font-size: 20px; font-weight: 500; display: flex; align-items: center; gap: 12px; }
+
+.app-bar .material-icons { font-size: 28px; }
+
+.toolbar { display: flex; gap: 16px; align-items: center; }
+
+.text-field { background: rgba(255, 255, 255, 0.15); border-top: none; border-right: none; border-left: none; border-image: initial; border-bottom: 1px solid rgba(255, 255, 255, 0.5); padding: 8px 12px; color: white; font-family: Roboto, sans-serif; font-size: 14px; width: 300px; border-radius: 4px 4px 0px 0px; transition: 0.3s; }
+
+.text-field:focus { outline: none; background: rgba(255, 255, 255, 0.25); border-bottom-color: white; }
+
+.text-field::placeholder { color: rgba(255, 255, 255, 0.7); }
+
+.container { display: flex; height: calc(-64px + 100vh); }
+
+.drawer { width: 320px; background: var(--surface); border-right: 1px solid var(--divider); display: flex; flex-direction: column; box-shadow: rgba(0, 0, 0, 0.1) 2px 0px 4px; }
+
+.drawer-header { padding: 16px; border-bottom: 1px solid var(--divider); display: flex; justify-content: space-between; align-items: center; }
+
+.drawer-header h2 { font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); }
+
+.list { flex: 1 1 0%; overflow-y: auto; }
+
+.list-item { padding: 16px; border-bottom: 1px solid var(--divider); cursor: pointer; transition: background 0.2s; position: relative; }
+
+.list-item:hover { background: rgba(0, 0, 0, 0.04); }
+
+.list-item.selected { background: var(--primary); color: white; }
+
+.list-item.selected .list-item-text-secondary, .list-item.selected .list-item-meta { color: rgba(255, 255, 255, 0.7); }
+
+.list-item-text { font-weight: 500; font-size: 16px; margin-bottom: 4px; }
+
+.list-item-text-secondary { font-size: 14px; color: var(--text-secondary); margin-bottom: 4px; }
+
+.list-item-meta { font-size: 12px; font-family: "Roboto Mono", monospace; color: var(--text-disabled); }
+
+.list-item-actions { position: absolute; top: 12px; right: 12px; display: flex; gap: 4px; opacity: 0; transition: opacity 0.2s; }
+
+.list-item:hover .list-item-actions, .list-item.selected .list-item-actions { opacity: 1; }
+
+.icon-button { width: 36px; height: 36px; border: none; background: transparent; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+
+.icon-button:hover { background: rgba(0, 0, 0, 0.08); }
+
+.list-item.selected .icon-button:hover { background: rgba(255, 255, 255, 0.15); }
+
+.icon-button .material-icons { font-size: 20px; color: var(--text-secondary); }
+
+.list-item.selected .icon-button .material-icons { color: white; }
+
+.main-content { flex: 1 1 0%; overflow-y: auto; background: var(--background); }
+
+.tabs { background: var(--surface); border-bottom: 1px solid var(--divider); display: flex; padding: 0px 24px; box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 3px; }
+
+.tab { padding: 16px 24px; cursor: pointer; border-bottom: 2px solid transparent; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; font-size: 14px; color: var(--text-secondary); transition: 0.2s; }
+
+.tab:hover { background: rgba(0, 0, 0, 0.04); }
+
+.tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+.tab-content { display: none; padding: 24px; max-width: 1200px; }
+
+.tab-content.active { display: block; }
+
+.card { background: var(--surface); border-radius: 8px; box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px; margin-bottom: 24px; overflow: hidden; }
+
+.card-header { padding: 20px 24px; border-bottom: 1px solid var(--divider); }
+
+.card-header h3 { font-size: 20px; font-weight: 500; margin-bottom: 4px; }
+
+.card-content { padding: 24px; }
+
+.form-field { margin-bottom: 24px; }
+
+.form-label { display: block; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); margin-bottom: 8px; }
+
+.input, .textarea, .select { width: 100%; padding: 12px 16px; border: 1px solid var(--divider); border-radius: 4px; font-family: Roboto, sans-serif; font-size: 16px; transition: 0.2s; background: var(--surface); }
+
+.input:focus, .textarea:focus, .select:focus { outline: none; border-color: var(--primary); box-shadow: rgba(25, 118, 210, 0.1) 0px 0px 0px 2px; }
+
+.textarea { min-height: 100px; resize: vertical; font-family: "Roboto Mono", monospace; font-size: 14px; }
+
+.helper-text { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+.button { padding: 10px 24px; border: none; border-radius: 4px; font-family: Roboto, sans-serif; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: 0.2s; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px; display: inline-flex; align-items: center; gap: 8px; }
+
+.button:hover { box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 8px; }
+
+.button:active { box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px; }
+
+.button:disabled { opacity: 0.6; cursor: not-allowed; box-shadow: none; }
+
+.button-primary { background: var(--primary); color: white; }
+
+.button-primary:hover { background: var(--primary-dark); }
+
+.button-secondary { background: transparent; color: var(--primary); box-shadow: none; border: 1px solid var(--primary); }
+
+.button-secondary:hover { background: rgba(25, 118, 210, 0.08); }
+
+.button-fab { width: 56px; height: 56px; border-radius: 50%; padding: 0px; justify-content: center; background: var(--primary); color: white; }
+
+.button-icon { width: 40px; height: 40px; border-radius: 50%; padding: 0px; justify-content: center; background: transparent; color: var(--text-secondary); box-shadow: none; }
+
+.button-icon:hover { background: rgba(0, 0, 0, 0.08); box-shadow: none; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.chip { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 16px; font-size: 13px; font-weight: 500; }
+
+.chip-success { background: rgba(76, 175, 80, 0.1); color: var(--success); }
+
+.chip-error { background: rgba(244, 67, 54, 0.1); color: var(--error); }
+
+.empty-state { text-align: center; padding: 48px 24px; color: var(--text-secondary); }
+
+.empty-state .material-icons { font-size: 64px; opacity: 0.3; margin-bottom: 16px; }
+
+.result-card { background: var(--background); border-radius: 8px; padding: 16px; margin-bottom: 16px; border: 1px solid var(--divider); }
+
+.result-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+
+pre { background: rgb(38, 50, 56); color: rgb(174, 213, 129); padding: 16px; border-radius: 4px; overflow-x: auto; font-size: 13px; line-height: 1.5; }
+
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+
+.stat-card { background: var(--surface); border-radius: 8px; padding: 20px; text-align: center; border: 1px solid var(--divider); }
+
+.stat-value { font-size: 32px; font-weight: 700; margin-bottom: 4px; }
+
+.stat-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); }
+
+.spinner { display: inline-block; width: 18px; height: 18px; border-width: 2px; border-style: solid; border-color: white rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3); border-image: initial; border-radius: 50%; animation: 0.8s linear 0s infinite normal none running spin; }
+
+@keyframes spin { 
+  100% { transform: rotate(360deg); }
+}
+
+.snackbar { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: rgb(50, 50, 50); color: white; padding: 14px 24px; border-radius: 4px; box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px; z-index: 1000; display: none; }
+
+.snackbar.show { display: block; animation: 0.3s ease 0s 1 normal none running slideUp; }
+
+@keyframes slideUp { 
+  0% { transform: translateX(-50%) translateY(100px); opacity: 0; }
+  100% { transform: translateX(-50%) translateY(0px); opacity: 1; }
+}
+
+.elevation-1 { box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px; }
+
+.elevation-2 { box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px; }
+
+.elevation-3 { box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px; }
+------MultipartBoundary--bH4afwtFG1wpX5YZlYxXZrwPDwAiPzP9oQrtVlZx74------

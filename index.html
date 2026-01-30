@@ -20,6 +20,17 @@
   --success:#44ff44;
   --error:#ff4444;
 }
+  .demo-disclaimer {
+  background: rgba(255, 68, 68, 0.08);
+  border-bottom: 1px solid rgba(255, 68, 68, 0.35);
+  color: #ff8a8a;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+}
 
 body {
   background:var(--bg-primary);
@@ -94,7 +105,9 @@ body {
 </head>
 
 <body>
-
+<div class="demo-disclaimer">
+  demo only. backend and llm calls run on a limited free tier. please avoid heavy or automated usage.
+</div>
 <header class="header py-4">
 <div class="container">
 <h2>LLM Metric Playground</h2>

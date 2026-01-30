@@ -263,8 +263,8 @@ metricsList.innerHTML = metrics.map(m=>`
 <strong>${m.name}</strong>
 <div class="text-secondary small">${m.description||'no description'}</div>
 <div class="metric-actions">
-<button class="btn btn-sm btn-outline-secondary" onclick="event.stopPropagation();editMetric('${m.name}')">edit</button>
-<button class="btn btn-sm btn-danger" onclick="event.stopPropagation();deleteMetric('${m.name}')">delete</button>
+<button disabled class="btn btn-sm btn-outline-secondary" onclick="event.stopPropagation();editMetric('${m.name}')">edit</button>
+<button disabled class="btn btn-sm btn-danger" onclick="event.stopPropagation();deleteMetric('${m.name}')">delete</button>
 </div>
 </div>
 `).join('');
@@ -410,7 +410,7 @@ evalResultContainer.style.display='block';
 }catch(err){
 alertMsg(err.message,'danger');
 }finally{
-evaluateBtn.disabled=false;
+evaluateBtn.disabled=true;
 evaluateBtn.textContent='Evaluate';
 }
 };

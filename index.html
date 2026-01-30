@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM Metric Playground</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+/* unchanged design */
+body{font-family:Inter,sans-serif;background:#0a0a0a;color:#fff}
+.card{background:#1a1a1a;border:1px solid #3a3a3a}
+.form-control,.form-select{background:#2a2a2a;color:#fff;border:1px solid #3a3a3a}
+.metric-item{background:#2a2a2a;border:1px solid #3a3a3a;padding:1rem;margin-bottom:.75rem}
+.metric-actions{display:flex;gap:.5rem}
+.json-output{background:#2a2a2a;padding:1rem;font-family:monospace}
+</style>
+</head>
+
+<body>
+
+<div class="container py-4">
+
+<div id="alertContainer"></div>
+
+<ul class="nav nav-tabs mb-3">
+<li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#metricsTab">Metrics</a></li>
+<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#createTab">Create Metric</a></li>
+<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#evaluateTab">Evaluate</a></li>
+</ul>
+
+<div class="tab-content">
+
+<!-- metrics -->
+<div class="tab-pane fade show active" id="metricsTab">
+<div id="metricsList"></div>
+</div>
+
+<!-- create -->
+<div class="tab-pane fade" id="createTab">
+<div class="card"><div class="card-body">
+<form id="createMetricForm">
+
+<input type="hidden" id="editingMetric">
+
+<div class="mb-2">
+<label>name</label>
+<input class="form-control" id="metricName" required>
+</div>
+
+<div class="mb-2">
+<label>description</label>
+<input class="form-control" id="metricDescription">
+</div>
+
+<div class="mb-2">
+<label>input fields</label>
+<div id="inputFieldsContainer"></div>
+<button type="button" class="btn btn-sm btn-secondary mt-1" onclick="addInputField()">+</button>
+</div>
+
+<div class="mb-2">
+<label>prompt template</label>
+<textarea class="form-control" id="promptTemplate" rows="6" required></textarea>
+</div>
+
+<div class="mb-2">
+<label>output schema</label>
+<div id="outputSchemaContainer"></div>
+<button type="button" class="btn btn-sm btn-secondary mt-1" onclick="addOutputField()">+</button>
+</div>
+
+<button class="btn btn-primary w-100 mt-2">save</button>
+</form>
+</div></div>
+</div>
+
+<!-- evaluate -->
+<div class="tab-pane fade" id="evaluateTab">
+<div class="card"><div class="card-body">
+
+<form id="evaluateForm">
+
+<select id="evalMetricSelect" class="form-select mb-2" required></select>
+
+<select id="evalProvider" class="form-select mb-2">
+<option value="perplexity">perplexity</option>
+<option value="openai">openai</option>
+</select>
+
+<input id="evalModel" class="form-control mb-2" value="sonar-pro">
+
+<div id="evalInputsContainer"></div>
+
+<button class="btn btn-primary w-100 mt-2">evaluate</button>
+</form>
+
+<div id="evalResultContainer" class="mt-3" style="display:none">
+<pre class="json-output" id="evalResult"></pre>
+</div>
+
+</div></div>
+</div>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const API = 'https://custom-metric-playground.vercel.app';
+let metrics = [];
+let editing = null;
+let evalMetricCache = null;
+
+/* helpers */
+function alertMsg(m,t='info'){
+const d=document.createElement('div');
+d.className=`alert alert-${t}`;
+d.textContent=m;
+alertContainer.appendChild(d);
+setTimeout(()=>d.remove(),4000);
+}
+
+async function api(url,opt={}){
+const r=await fetch(API+url,{
+headers:{'Content-Type':'application/json'},
+...opt
+});
+if(!r.ok) throw new Error(await r.text());
+return r.json();
+}
+
+/* load metrics */
+async function loadMetrics(){
+metrics = await api('/v1/metrics/?limit=100');
+
+metricsList.innerHTML = metrics.map(m=>`
+<div class="metric-item">
+<b>${m.name}</b>
+<div class="metric-actions mt-2">
+<button class="btn btn-sm btn-outline-secondary" onclick="editMetric('${m.name}')">edit</button>
+<button class="btn btn-sm btn-danger" onclick="deleteMetric('${m.name}')">delete</button>
+</div>
+</div>
+`).join('');
+
+evalMetricSelect.innerHTML =
+'<option value="">select metric</option>' +
+metrics.map(m=>`<option value="${m.name}">${m.name}</option>`).join('');
+}
+
+/* dynamic fields */
+function addInputField(v=''){
+inputFieldsContainer.insertAdjacentHTML('beforeend',
+`<input class="form-control mb-1 input-field" value="${v}" required>`);
+}
+
+function addOutputField(k='',t='number'){
+outputSchemaContainer.insertAdjacentHTML('beforeend',
+`<div class="d-flex gap-2 mb-1">
+<input class="form-control output-key" value="${k}" required>
+<select class="form-select output-type">
+<option ${t==='number'?'selected':''}>number</option>
+<option ${t==='string'?'selected':''}>string</option>
+<option ${t==='boolean'?'selected':''}>boolean</option>
+</select>
+</div>`);
+}
+
+/* create / update */
+createMetricForm.onsubmit = async e=>{
+e.preventDefault();
+
+const input_fields=[...document.querySelectorAll('.input-field')].map(i=>i.value);
+
+const output_schema={};
+document.querySelectorAll('.output-key').forEach((k,i)=>{
+output_schema[k.value]=document.querySelectorAll('.output-type')[i].value;
+});
+
+const payload={
+name:metricName.value,
+description:metricDescription.value||null,
+prompt_template:promptTemplate.value,
+input_fields,
+output_schema
+};
+
+if(editing){
+await api(`/v1/metrics/${editing}`,{method:'PATCH',body:JSON.stringify(payload)});
+alertMsg('metric updated','success');
+}else{
+await api('/v1/metrics/',{method:'POST',body:JSON.stringify(payload)});
+alertMsg('metric created','success');
+}
+
+editing=null;
+createMetricForm.reset();
+inputFieldsContainer.innerHTML='';
+outputSchemaContainer.innerHTML='';
+addInputField();
+addOutputField();
+loadMetrics();
+};
+
+/* edit */
+function editMetric(name){
+const m=metrics.find(x=>x.name===name);
+editing=name;
+metricName.value=m.name;
+metricDescription.value=m.description||'';
+promptTemplate.value=m.prompt_template;
+inputFieldsContainer.innerHTML='';
+m.input_fields.forEach(addInputField);
+outputSchemaContainer.innerHTML='';
+Object.entries(m.output_schema).forEach(([k,v])=>addOutputField(k,v));
+document.querySelector('[href="#createTab"]').click();
+}
+
+/* delete */
+async function deleteMetric(name){
+if(!confirm('delete '+name+'?'))return;
+await api(`/v1/metrics/${name}`,{method:'DELETE'});
+alertMsg('deleted','success');
+loadMetrics();
+}
+
+/* ---------- EVALUATE FIX ---------- */
+
+evalMetricSelect.addEventListener('change', async () => {
+const name = evalMetricSelect.value;
+evalInputsContainer.innerHTML='';
+evalMetricCache = null;
+if(!name) return;
+
+/* fetch canonical metric */
+evalMetricCache = await api(`/v1/metrics/${name}`);
+
+/* generate inputs from authoritative schema */
+evalInputsContainer.innerHTML = evalMetricCache.input_fields.map(f=>`
+<div class="mb-2">
+<label class="form-label">${f}</label>
+<textarea class="form-control eval-input" data-field="${f}" required></textarea>
+</div>
+`).join('');
+});
+
+evaluateForm.onsubmit = async e=>{
+e.preventDefault();
+if(!evalMetricCache){
+alertMsg('select a metric first','danger');
+return;
+}
+
+const inputs = {};
+document.querySelectorAll('.eval-input').forEach(i=>{
+inputs[i.dataset.field]=i.value;
+});
+
+const res = await api(`/v1/metrics/${evalMetricCache.name}/evaluate`,{
+method:'POST',
+body:JSON.stringify({
+inputs,
+provider: evalProvider.value,
+model: evalModel.value
+})
+});
+
+evalResultContainer.style.display='block';
+evalResult.textContent = JSON.stringify(res,null,2);
+};
+
+/* init */
+addInputField();
+addOutputField();
+loadMetrics();
+</script>
+
+</body>
+</html>

@@ -1,883 +1,215 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLM Metric Playground - Evaluation Console</title>
-    
-    <!-- Bootstrap 5.3 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Google Fonts - System-style -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #1a1a1a;
-            --bg-tertiary: #2a2a2a;
-            --border-color: #3a3a3a;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
-            --text-muted: #6a6a6a;
-            --accent: #ffffff;
-            --error: #ff4444;
-            --success: #44ff44;
-            --warning: #ffaa44;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            font-size: 14px;
-        }
-        
-        /* Header */
-        .header {
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-        
-        .header h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin: 0;
-        }
-        
-        .header p {
-            color: var(--text-secondary);
-            margin: 0.25rem 0 0 0;
-            font-size: 0.875rem;
-        }
-        
-        /* Navigation Tabs */
-        .nav-tabs {
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 2rem;
-        }
-        
-        .nav-tabs .nav-link {
-            color: var(--text-secondary);
-            border: none;
-            border-bottom: 2px solid transparent;
-            padding: 0.75rem 1.5rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-        
-        .nav-tabs .nav-link:hover {
-            color: var(--text-primary);
-            border-bottom-color: var(--border-color);
-        }
-        
-        .nav-tabs .nav-link.active {
-            color: var(--accent);
-            background: transparent;
-            border-bottom-color: var(--accent);
-        }
-        
-        /* Cards */
-        .card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            transition: border-color 0.2s;
-        }
-        
-        .card:hover {
-            border-color: var(--text-muted);
-        }
-        
-        .card-header {
-            background: transparent;
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 1.25rem;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .card-body {
-            padding: 1.25rem;
-        }
-        
-        /* Form Controls */
-        .form-label {
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 0.875rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .form-control, .form-select {
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            padding: 0.625rem 0.875rem;
-            font-size: 0.875rem;
-            transition: all 0.2s;
-        }
-        
-        .form-control:focus, .form-select:focus {
-            background: var(--bg-secondary);
-            border-color: var(--accent);
-            color: var(--text-primary);
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
-        }
-        
-        .form-control::placeholder {
-            color: var(--text-muted);
-        }
-        
-        textarea.form-control {
-            font-family: 'Courier New', monospace;
-            font-size: 0.8125rem;
-            min-height: 120px;
-        }
-        
-        /* Buttons */
-        .btn {
-            font-weight: 500;
-            padding: 0.625rem 1.25rem;
-            border-radius: 6px;
-            transition: all 0.2s;
-            font-size: 0.875rem;
-            border: 1px solid transparent;
-        }
-        
-        .btn-primary {
-            background: var(--accent);
-            color: var(--bg-primary);
-            border-color: var(--accent);
-        }
-        
-        .btn-primary:hover {
-            background: var(--text-secondary);
-            border-color: var(--text-secondary);
-            color: var(--bg-primary);
-        }
-        
-        .btn-outline-secondary {
-            border-color: var(--border-color);
-            color: var(--text-primary);
-        }
-        
-        .btn-outline-secondary:hover {
-            background: var(--bg-tertiary);
-            border-color: var(--text-muted);
-            color: var(--text-primary);
-        }
-        
-        .btn-sm {
-            padding: 0.375rem 0.75rem;
-            font-size: 0.8125rem;
-        }
-        
-        .btn-danger {
-            background: var(--error);
-            border-color: var(--error);
-            color: white;
-        }
-        
-        /* Alerts */
-        .alert {
-            border-radius: 6px;
-            border: 1px solid;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: start;
-            gap: 0.75rem;
-        }
-        
-        .alert-success {
-            background: rgba(68, 255, 68, 0.1);
-            border-color: var(--success);
-            color: var(--success);
-        }
-        
-        .alert-danger {
-            background: rgba(255, 68, 68, 0.1);
-            border-color: var(--error);
-            color: var(--error);
-        }
-        
-        .alert-info {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--border-color);
-            color: var(--text-secondary);
-        }
-        
-        /* Metric List */
-        .metric-item {
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 1rem;
-            margin-bottom: 0.75rem;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-        
-        .metric-item:hover {
-            border-color: var(--text-muted);
-            background: var(--bg-secondary);
-        }
-        
-        .metric-item.selected {
-            border-color: var(--accent);
-            background: var(--bg-secondary);
-        }
-        
-        .metric-name {
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-            color: var(--text-primary);
-        }
-        
-        .metric-description {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .metric-meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-        
-        .metric-actions {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
-        }
-        
-        /* Badge */
-        .badge {
-            padding: 0.25rem 0.5rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-            border-radius: 4px;
-        }
-        
-        .badge-light {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-        }
-        
-        /* Loading Spinner */
-        .spinner-border-sm {
-            width: 1rem;
-            height: 1rem;
-            border-width: 2px;
-        }
-        
-        /* JSON Output */
-        .json-output {
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 1rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-            max-height: 400px;
-            overflow-y: auto;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-        
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: var(--text-muted);
-        }
-        
-        .empty-state .material-icons {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            opacity: 0.3;
-        }
-        
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--border-color);
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--text-muted);
-        }
-        
-        /* Dynamic Input Fields */
-        .dynamic-field {
-            margin-bottom: 1rem;
-        }
-        
-        .field-array-item {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .field-array-item input {
-            flex: 1;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.25rem;
-            }
-            
-            .metric-actions {
-                flex-direction: column;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<title>LLM Metric Playground</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <h1>LLM Metric Playground</h1>
-            <p>  Evaluation Engine for Production AI Systems </p> 
-<p>
-Stop guessing and start measuring how your LLM workflows actually perform.  
-LLM Metric Playground turns your vague “vibe checks” into concrete, repeatable metrics grounded in your real business data.  
 
-Define reusable, versioned evaluation metrics that capture what “good” means for your domain—whether that’s RAG answer quality, process compliance, or ticket hygiene.  
-Decouple generation from evaluation: you bring the model outputs (RAG responses, emails, Jira tickets), the playground scores them consistently using your custom rules.  
+<body class="bg-dark text-light">
 
-Run high‑concurrency bulk evaluations to regression‑test prompt or model changes before they hit production.  
-Track whether a new prompt, retrieval strategy, or model variant actually improves quality instead of relying on intuition.  
+<div class="container py-4">
+<h3>LLM Metric Playground</h3>
 
-Designed for engineering teams, this playground is fast, observable, and API‑first—easy to plug into CI/CD, dashboards, and A/B tests.  
-Treat LLM behavior like any other critical system: measurable, testable, and continuously improving.
-</p>
-        </div>
-    </header>
+<div id="alertContainer"></div>
 
-    <!-- Main Content -->
-    <div class="container py-4">
-        <!-- Alert Container -->
-        <div id="alertContainer"></div>
-        
-        <!-- Navigation Tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" data-bs-toggle="tab" href="#metricsTab" role="tab">
-                    <span class="material-icons" style="vertical-align: middle; font-size: 18px;">list</span>
-                    Metrics
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#createTab" role="tab">
-                    <span class="material-icons" style="vertical-align: middle; font-size: 18px;">add_circle</span>
-                    Create Metric
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#evaluateTab" role="tab">
-                    <span class="material-icons" style="vertical-align: middle; font-size: 18px;">play_arrow</span>
-                    Evaluate
-                </a>
-            </li>
-        </ul>
+<ul class="nav nav-tabs mb-3">
+<li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#metrics">Metrics</a></li>
+<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#create">Create / Edit</a></li>
+<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#evaluate">Evaluate</a></li>
+</ul>
 
-        <!-- Tab Content -->
-        <div class="tab-content">
-            <!-- Metrics List Tab -->
-            <div class="tab-pane fade show active" id="metricsTab" role="tabpanel">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h5 class="mb-0">Available Metrics</h5>
-                            <button class="btn btn-outline-secondary btn-sm" onclick="loadMetrics()">
-                                <span class="material-icons" style="vertical-align: middle; font-size: 16px;">refresh</span>
-                                Refresh
-                            </button>
-                        </div>
-                        <div id="metricsList"></div>
-                    </div>
-                </div>
-            </div>
+<div class="tab-content">
 
-            <!-- Create Metric Tab -->
-            <div class="tab-pane fade" id="createTab" role="tabpanel">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="card">
-                            <div class="card-header">
-                                <span>Define New Metric</span>
-                            </div>
-                            <div class="card-body">
-                                <form id="createMetricForm">
-                                    <div class="mb-3">
-                                        <label class="form-label">Metric Name</label>
-                                        <input type="text" class="form-control" id="metricName" 
-                                               placeholder="e.g., jira-ticket-quality" required>
-                                        <small class="text-muted">Unique slug identifier (lowercase, hyphens allowed)</small>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label class="form-label">Description</label>
-                                        <input type="text" class="form-control" id="metricDescription" 
-                                               placeholder="Brief description of what this metric evaluates">
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label class="form-label">Input Fields</label>
-                                        <div id="inputFieldsContainer">
-                                            <div class="field-array-item">
-                                                <input type="text" class="form-control input-field" 
-                                                       placeholder="e.g., query, response, context" required>
-                                                <button type="button" class="btn btn-outline-secondary" 
-                                                        onclick="addInputField()">+</button>
-                                            </div>
-                                        </div>
-                                        <small class="text-muted">Variables available in your prompt template</small>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label class="form-label">Prompt Template (Jinja2)</label>
-                                        <textarea class="form-control" id="promptTemplate" rows="8" 
-                                                  required placeholder="Example:
-You are evaluating the quality of a response.
+<!-- METRICS -->
+<div class="tab-pane fade show active" id="metrics">
+<div id="metricsList"></div>
+</div>
 
-Query: {{ query }}
-Response: {{ response }}
+<!-- CREATE / EDIT -->
+<div class="tab-pane fade" id="create">
+<form id="metricForm">
+<input type="hidden" id="editingMetricId">
 
-Rate the response on a scale of 1-10 for:
-- Accuracy
-- Completeness
-- Clarity"></textarea>
-                                        <small class="text-muted">Use Jinja2 syntax: {{ variable_name }}</small>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label class="form-label">Output Schema</label>
-                                        <div id="outputSchemaContainer">
-                                            <div class="field-array-item">
-                                                <input type="text" class="form-control output-field-key" 
-                                                       placeholder="Field name (e.g., accuracy)" required>
-                                                <select class="form-select output-field-type">
-                                                    <option value="number">number</option>
-                                                    <option value="string">string</option>
-                                                    <option value="boolean">boolean</option>
-                                                </select>
-                                                <button type="button" class="btn btn-outline-secondary" 
-                                                        onclick="addOutputField()">+</button>
-                                            </div>
-                                        </div>
-                                        <small class="text-muted">Expected structure of evaluation response</small>
-                                    </div>
-                                    
-                                    <div class="d-grid gap-2">
-                                        <button type="submit" class="btn btn-primary">
-                                            <span class="material-icons" style="vertical-align: middle; font-size: 18px;">save</span>
-                                            Create Metric
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="mb-2">
+<label>Name</label>
+<input class="form-control" id="metricName" required>
+</div>
 
-            <!-- Evaluate Tab -->
-            <div class="tab-pane fade" id="evaluateTab" role="tabpanel">
-                <div class="row">
-                    <div class="col-lg-10 mx-auto">
-                        <div class="card">
-                            <div class="card-header">
-                                <span>Run Evaluation</span>
-                            </div>
-                            <div class="card-body">
-                                <form id="evaluateForm">
-                                    <div class="mb-3">
-                                        <label class="form-label">Select Metric</label>
-                                        <select class="form-select" id="evalMetricSelect" required 
-                                                onchange="updateEvalInputs()">
-                                            <option value="">Choose a metric...</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label class="form-label">LLM Provider</label>
-                                        <select class="form-select" id="evalProvider">
-                                            <option value="perplexity">Perplexity</option>
-                                            <option value="openai">OpenAI</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label class="form-label">Model</label>
-                                        <input type="text" class="form-control" id="evalModel" 
-                                               value="sonar-pro" placeholder="e.g., sonar-pro, gpt-4">
-                                    </div>
-                                    
-                                    <div id="evalInputsContainer" class="mb-3"></div>
-                                    
-                                    <div class="d-grid gap-2">
-                                        <button type="submit" class="btn btn-primary" id="evaluateBtn">
-                                            <span class="material-icons" style="vertical-align: middle; font-size: 18px;">play_arrow</span>
-                                            Evaluate
-                                        </button>
-                                    </div>
-                                </form>
-                                
-                                <div id="evalResultContainer" class="mt-4" style="display: none;">
-                                    <h6 class="text-secondary mb-2">EVALUATION RESULT</h6>
-                                    <div class="json-output" id="evalResult"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="mb-2">
+<label>Description</label>
+<input class="form-control" id="metricDescription">
+</div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        const API_BASE = 'https://custom-metric-playground.vercel.app';
-        let metricsCache = [];
-        
-        // Alert Helper
-        function showAlert(message, type = 'info') {
-            const alertDiv = document.createElement('div');
-            alertDiv.className = `alert alert-${type}`;
-            alertDiv.innerHTML = `
-                <span class="material-icons">${type === 'success' ? 'check_circle' : type === 'danger' ? 'error' : 'info'}</span>
-                <div>${message}</div>
-            `;
-            
-            const container = document.getElementById('alertContainer');
-            container.appendChild(alertDiv);
-            
-            setTimeout(() => {
-                alertDiv.remove();
-            }, 5000);
-        }
-        
-        // API Call Helper with Error Handling
-        async function apiCall(endpoint, options = {}) {
-            try {
-                const response = await fetch(`${API_BASE}${endpoint}`, {
-                    ...options,
-                    headers: {
-                        'Content-Type': 'application/json',
-                        ...options.headers
-                    }
-                });
-                
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    let errorMessage;
-                    try {
-                        const errorJson = JSON.parse(errorText);
-                        errorMessage = errorJson.detail || errorJson.message || `HTTP ${response.status}`;
-                    } catch {
-                        errorMessage = `HTTP ${response.status}: ${response.statusText}`;
-                    }
-                    throw new Error(errorMessage);
-                }
-                
-                return await response.json();
-            } catch (error) {
-                console.error('API Error:', error);
-                throw error;
-            }
-        }
-        
-        // Load Metrics
-        async function loadMetrics() {
-            const container = document.getElementById('metricsList');
-            container.innerHTML = '<div class="text-center"><div class="spinner-border" role="status"></div></div>';
-            
-            try {
-                const metrics = await apiCall('/v1/metrics/?limit=100');
-                metricsCache = metrics;
-                
-                if (metrics.length === 0) {
-                    container.innerHTML = `
-                        <div class="empty-state">
-                            <span class="material-icons">inbox</span>
-                            <p>No metrics found. Create your first metric to get started.</p>
-                        </div>
-                    `;
-                    return;
-                }
-                
-                container.innerHTML = metrics.map(metric => `
-                    <div class="metric-item">
-                        <div class="metric-name">${metric.name}</div>
-                        ${metric.description ? `<div class="metric-description">${metric.description}</div>` : ''}
-                        <div class="metric-meta">
-                            <span><strong>Inputs:</strong> ${metric.input_fields.join(', ')}</span>
-                            <span><strong>Outputs:</strong> ${Object.keys(metric.output_schema).join(', ')}</span>
-                        </div>
-                        <div class="metric-actions">
-                            <button class="btn btn-outline-secondary btn-sm" onclick="viewMetric('${metric._id}')">
-                                <span class="material-icons" style="font-size: 14px;">visibility</span> View
-                            </button>
-                            <button class="btn btn-outline-secondary btn-sm" onclick="editMetric('${metric._id}')">
-                                <span class="material-icons" style="font-size: 14px;">edit</span> Edit
-                            </button>
-                            <button class="btn btn-danger btn-sm" onclick="deleteMetric('${metric._id}', '${metric.name}')">
-                                <span class="material-icons" style="font-size: 14px;">delete</span> Delete
-                            </button>
-                        </div>
-                    </div>
-                `).join('');
-                
-                // Update evaluate dropdown
-                updateMetricDropdown();
-            } catch (error) {
-                container.innerHTML = `<div class="alert alert-danger">Failed to load metrics: ${error.message}</div>`;
-            }
-        }
-        
-        // View Metric Details
-        function viewMetric(id) {
-            const metric = metricsCache.find(m => m._id === id);
-            if (!metric) return;
-            
-            const modal = document.createElement('div');
-            modal.innerHTML = `
-                <div class="modal fade" id="viewModal" tabindex="-1">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content" style="background: var(--bg-secondary); border: 1px solid var(--border-color);">
-                            <div class="modal-header" style="border-bottom: 1px solid var(--border-color);">
-                                <h5 class="modal-title">${metric.name}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" style="filter: invert(1);"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="json-output">${JSON.stringify(metric, null, 2)}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(modal);
-            const modalInstance = new bootstrap.Modal(modal.querySelector('.modal'));
-            modalInstance.show();
-            modal.querySelector('.modal').addEventListener('hidden.bs.modal', () => modal.remove());
-        }
-        
-        // Delete Metric
-        async function deleteMetric(id, name) {
-            if (!confirm(`Delete metric "${name}"? This action cannot be undone.`)) return;
-            
-            try {
-                await apiCall(`/v1/metrics/${id}`, { method: 'DELETE' });
-                showAlert(`Metric "${name}" deleted successfully`, 'success');
-                loadMetrics();
-            } catch (error) {
-                showAlert(`Failed to delete metric: ${error.message}`, 'danger');
-            }
-        }
-        
-        // Edit Metric (Simplified - opens edit form)
-        function editMetric(id) {
-            const metric = metricsCache.find(m => m._id === id);
-            if (!metric) return;
-            
-            showAlert('Edit functionality: Update the metric and use PATCH endpoint', 'info');
-            // In production, you'd populate a form with metric data
-        }
-        
-        // Update Metric Dropdown
-        function updateMetricDropdown() {
-            const select = document.getElementById('evalMetricSelect');
-            select.innerHTML = '<option value="">Choose a metric...</option>' +
-                metricsCache.map(m => `<option value="${m.name}" data-id="${m._id}">${m.name}</option>`).join('');
-        }
-        
-        // Dynamic Input Field Management
-        function addInputField() {
-            const container = document.getElementById('inputFieldsContainer');
-            const div = document.createElement('div');
-            div.className = 'field-array-item';
-            div.innerHTML = `
-                <input type="text" class="form-control input-field" placeholder="Field name" required>
-                <button type="button" class="btn btn-outline-secondary" onclick="this.parentElement.remove()">−</button>
-            `;
-            container.appendChild(div);
-        }
-        
-        function addOutputField() {
-            const container = document.getElementById('outputSchemaContainer');
-            const div = document.createElement('div');
-            div.className = 'field-array-item';
-            div.innerHTML = `
-                <input type="text" class="form-control output-field-key" placeholder="Field name" required>
-                <select class="form-select output-field-type">
-                    <option value="number">number</option>
-                    <option value="string">string</option>
-                    <option value="boolean">boolean</option>
-                </select>
-                <button type="button" class="btn btn-outline-secondary" onclick="this.parentElement.remove()">−</button>
-            `;
-            container.appendChild(div);
-        }
-        
-        // Create Metric Form Handler
-        document.getElementById('createMetricForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const inputFields = Array.from(document.querySelectorAll('.input-field'))
-                .map(input => input.value.trim())
-                .filter(v => v);
-            
-            const outputSchema = {};
-            document.querySelectorAll('.field-array-item').forEach(item => {
-                const key = item.querySelector('.output-field-key')?.value.trim();
-                const type = item.querySelector('.output-field-type')?.value;
-                if (key && type) outputSchema[key] = type;
-            });
-            
-            const payload = {
-                name: document.getElementById('metricName').value.trim(),
-                description: document.getElementById('metricDescription').value.trim() || null,
-                prompt_template: document.getElementById('promptTemplate').value.trim(),
-                input_fields: inputFields,
-                output_schema: outputSchema
-            };
-            
-            try {
-                await apiCall('/v1/metrics/', {
-                    method: 'POST',
-                    body: JSON.stringify(payload)
-                });
-                
-                showAlert('Metric created successfully!', 'success');
-                document.getElementById('createMetricForm').reset();
-                document.getElementById('inputFieldsContainer').innerHTML = `
-                    <div class="field-array-item">
-                        <input type="text" class="form-control input-field" placeholder="e.g., query" required>
-                        <button type="button" class="btn btn-outline-secondary" onclick="addInputField()">+</button>
-                    </div>
-                `;
-                document.getElementById('outputSchemaContainer').innerHTML = `
-                    <div class="field-array-item">
-                        <input type="text" class="form-control output-field-key" placeholder="Field name" required>
-                        <select class="form-select output-field-type">
-                            <option value="number">number</option>
-                            <option value="string">string</option>
-                            <option value="boolean">boolean</option>
-                        </select>
-                        <button type="button" class="btn btn-outline-secondary" onclick="addOutputField()">+</button>
-                    </div>
-                `;
-                loadMetrics();
-            } catch (error) {
-                showAlert(`Failed to create metric: ${error.message}`, 'danger');
-            }
-        });
-        
-        // Update Evaluation Inputs Based on Selected Metric
-        function updateEvalInputs() {
-            const select = document.getElementById('evalMetricSelect');
-            const metricName = select.value;
-            const container = document.getElementById('evalInputsContainer');
-            
-            if (!metricName) {
-                container.innerHTML = '';
-                return;
-            }
-            
-            const metric = metricsCache.find(m => m.name === metricName);
-            if (!metric) return;
-            
-            container.innerHTML = `
-                <h6 class="text-secondary mb-3">INPUT PARAMETERS</h6>
-                ${metric.input_fields.map(field => `
-                    <div class="mb-3">
-                        <label class="form-label">${field}</label>
-                        <textarea class="form-control eval-input" data-field="${field}" rows="3" 
-                                  placeholder="Enter ${field}" required></textarea>
-                    </div>
-                `).join('')}
-            `;
-        }
-        
-        // Evaluate Form Handler
-        document.getElementById('evaluateForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const metricName = document.getElementById('evalMetricSelect').value;
-            const provider = document.getElementById('evalProvider').value;
-            const model = document.getElementById('evalModel').value;
-            
-            const inputs = {};
-            document.querySelectorAll('.eval-input').forEach(input => {
-                inputs[input.dataset.field] = input.value.trim();
-            });
-            
-            const btn = document.getElementById('evaluateBtn');
-            btn.disabled = true;
-            btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Evaluating...';
-            
-            try {
-                const result = await apiCall(`/v1/metrics/${metricName}/evaluate`, {
-                    method: 'POST',
-                    body: JSON.stringify({ inputs, provider, model })
-                });
-                
-                document.getElementById('evalResultContainer').style.display = 'block';
-                document.getElementById('evalResult').textContent = JSON.stringify(result, null, 2);
-                showAlert('Evaluation completed successfully!', 'success');
-            } catch (error) {
-                showAlert(`Evaluation failed: ${error.message}`, 'danger');
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = '<span class="material-icons" style="vertical-align: middle; font-size: 18px;">play_arrow</span> Evaluate';
-            }
-        });
-        
-        // Initialize
-        loadMetrics();
-    </script>
+<div class="mb-2">
+<label>Input fields</label>
+<div id="inputFieldsContainer"></div>
+<button type="button" class="btn btn-sm btn-secondary mt-1" onclick="addInputField()">+</button>
+</div>
+
+<div class="mb-2">
+<label>Prompt</label>
+<textarea class="form-control" id="promptTemplate" rows="5" required></textarea>
+</div>
+
+<div class="mb-2">
+<label>Output schema</label>
+<div id="outputSchemaContainer"></div>
+<button type="button" class="btn btn-sm btn-secondary mt-1" onclick="addOutputField()">+</button>
+</div>
+
+<button class="btn btn-primary mt-3" id="saveMetricBtn">Save Metric</button>
+</form>
+</div>
+
+<!-- EVALUATE -->
+<div class="tab-pane fade" id="evaluate">
+<form id="evaluateForm">
+
+<select id="evalMetricSelect" class="form-select mb-2" onchange="updateEvalInputs()" required></select>
+
+<select id="evalProvider" class="form-select mb-2">
+<option value="openai">openai</option>
+<option value="perplexity">perplexity</option>
+</select>
+
+<input id="evalModel" class="form-control mb-2" value="sonar-pro">
+
+<div id="evalInputsContainer"></div>
+
+<button class="btn btn-primary mt-2">Evaluate</button>
+</form>
+
+<pre id="evalResult" class="mt-3"></pre>
+</div>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const API = 'https://custom-metric-playground.vercel.app';
+let metrics = [];
+
+const alertBox = (msg,type='info')=>{
+const d=document.createElement('div');
+d.className=`alert alert-${type}`;
+d.textContent=msg;
+document.getElementById('alertContainer').appendChild(d);
+setTimeout(()=>d.remove(),4000);
+};
+
+const api = (url,opt={})=>fetch(API+url,{
+headers:{'Content-Type':'application/json'},
+...opt
+}).then(r=>r.ok?r.json():r.text().then(t=>Promise.reject(t)));
+
+const loadMetrics = async ()=>{
+metrics = await api('/v1/metrics/?limit=100');
+document.getElementById('metricsList').innerHTML = metrics.map(m=>`
+<div class="border p-2 mb-2">
+<b>${m.name}</b><br>
+<button class="btn btn-sm btn-secondary" onclick="editMetric('${m._id}')">edit</button>
+<button class="btn btn-sm btn-danger" onclick="deleteMetric('${m._id}')">delete</button>
+</div>
+`).join('');
+
+document.getElementById('evalMetricSelect').innerHTML =
+'<option value="">select</option>' +
+metrics.map(m=>`<option value="${m._id}">${m.name}</option>`).join('');
+};
+
+const addInputField = (v='')=>{
+document.getElementById('inputFieldsContainer').insertAdjacentHTML('beforeend',
+`<input class="form-control mb-1 input-field" value="${v}">`);
+};
+
+const addOutputField = (k='',t='number')=>{
+document.getElementById('outputSchemaContainer').insertAdjacentHTML('beforeend',
+`<div class="d-flex mb-1">
+<input class="form-control me-1 output-key" value="${k}">
+<select class="form-select output-type">
+<option ${t==='number'?'selected':''}>number</option>
+<option ${t==='string'?'selected':''}>string</option>
+<option ${t==='boolean'?'selected':''}>boolean</option>
+</select>
+</div>`);
+};
+
+document.getElementById('metricForm').onsubmit = async e=>{
+e.preventDefault();
+
+const output_schema = {};
+document.querySelectorAll('.output-key').forEach((k,i)=>{
+output_schema[k.value]={ type: document.querySelectorAll('.output-type')[i].value };
+});
+
+const payload = {
+name: metricName.value,
+description: metricDescription.value,
+prompt_template: promptTemplate.value,
+input_fields: [...document.querySelectorAll('.input-field')].map(i=>i.value),
+output_schema
+};
+
+const id = editingMetricId.value;
+if(id){
+await api(`/v1/metrics/${id}`,{method:'PATCH',body:JSON.stringify(payload)});
+alertBox('metric updated','success');
+}else{
+await api('/v1/metrics/',{method:'POST',body:JSON.stringify(payload)});
+alertBox('metric created','success');
+}
+
+e.target.reset();
+editingMetricId.value='';
+loadMetrics();
+};
+
+const editMetric = id=>{
+const m = metrics.find(x=>x._id===id);
+editingMetricId.value=id;
+metricName.value=m.name;
+metricDescription.value=m.description||'';
+promptTemplate.value=m.prompt_template;
+
+inputFieldsContainer.innerHTML='';
+m.input_fields.forEach(addInputField);
+
+outputSchemaContainer.innerHTML='';
+Object.entries(m.output_schema).forEach(([k,v])=>addOutputField(k,v.type));
+
+bootstrap.Tab.getOrCreateInstance(document.querySelector('[href="#create"]')).show();
+};
+
+const deleteMetric = async id=>{
+await api(`/v1/metrics/${id}`,{method:'DELETE'});
+alertBox('deleted','success');
+loadMetrics();
+};
+
+const updateEvalInputs = ()=>{
+const id = evalMetricSelect.value;
+const m = metrics.find(x=>x._id===id);
+evalInputsContainer.innerHTML = m.input_fields.map(f=>
+`<textarea class="form-control mb-1 eval-input" data-f="${f}" placeholder="${f}"></textarea>`
+).join('');
+};
+
+document.getElementById('evaluateForm').onsubmit = async e=>{
+e.preventDefault();
+const inputs={};
+document.querySelectorAll('.eval-input').forEach(i=>inputs[i.dataset.f]=i.value);
+const res = await api(`/v1/metrics/${evalMetricSelect.value}/evaluate`,{
+method:'POST',
+body:JSON.stringify({inputs,provider:evalProvider.value,model:evalModel.value})
+});
+evalResult.textContent = JSON.stringify(res,null,2);
+};
+
+loadMetrics();
+</script>
 </body>
 </html>
-
-
